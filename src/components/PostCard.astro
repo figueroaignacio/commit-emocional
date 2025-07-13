@@ -1,0 +1,72 @@
+---
+import ExternalLink from '@/icons/ExternalLink.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  slug: string;
+  publishedAt: string;
+}
+
+const { title, description, slug, publishedAt } = Astro.props;
+
+const date = new Date(publishedAt).toLocaleDateString('es-AR', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<article class="post-card">
+  <a href={`/post/${slug}`} class="post-card-link">
+    <div class="post-card-header">
+      <p class="post-card-date">{date}</p>
+      <ExternalLink />
+    </div>
+    <h2 class="post-card-title">{title}</h2>
+    <p class="post-card-description">{description}</p>
+  </a>
+</article>
+
+<style>
+  .post-card {
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: var(--background);
+    transition: border-color 0.2s ease;
+  }
+
+  .post-card:hover {
+    border-color: var(--muted-foreground);
+  }
+
+  .post-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .post-card-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .post-card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .post-card-description {
+    font-size: 0.95rem;
+    color: var(--muted-foreground);
+    margin-bottom: 0.75rem;
+  }
+
+  .post-card-date {
+    font-size: 0.7rem;
+    color: var(--muted-foreground);
+  }
+</style>

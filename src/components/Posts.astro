@@ -1,4 +1,7 @@
 ---
+// Components
+import PostCard from './PostCard.astro';
+
 import { sanityClient } from 'sanity:client';
 
 const posts = await sanityClient.fetch(
@@ -6,13 +9,23 @@ const posts = await sanityClient.fetch(
 );
 ---
 
-<h1>Blog</h1>
-<ul>
+<ul class="posts-list">
   {
     posts.map((post: any) => (
       <li>
-        <a href={'/posts/' + post.slug.current}>{post.title}</a>
+        <PostCard
+          title={post.title}
+          description={post.description}
+          publishedAt={post.publishedAt}
+          slug={post.slug.current}
+        />
       </li>
     ))
   }
 </ul>
+
+<style>
+  .posts-list {
+    margin-top: 2rem;
+  }
+</style>

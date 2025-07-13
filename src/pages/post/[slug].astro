@@ -1,7 +1,12 @@
 ---
+// Layout
+import PostLayout from '@/layouts/PostLayout.astro';
+
+// Compoennts
 import PortableText from '@/components/PortableText.astro';
 import Separator from '@/components/Separator.astro';
-import PostLayout from '@/layouts/PostLayout.astro';
+
+// Utils
 import { loadQuery } from '@/sanity/lib/load-query';
 import type { SanityDocument } from '@sanity/client';
 
@@ -57,7 +62,7 @@ const readingTime = Math.max(1, Math.round(wordCount / 200));
     <h1 class="post-title">{post.title}</h1>
     <p class="post-description">{post.description}</p>
     <p class="post-info">
-      Escrito por joven ingenuo · {date} · {readingTime} min de lectura
+      Escrito por el creador · {date} · {readingTime} min de lectura
     </p>
   </header>
   <Separator />
@@ -70,7 +75,7 @@ const readingTime = Math.max(1, Math.round(wordCount / 200));
   }
 
   .post-info {
-    font-size: 0.6rem;
+    font-size: 0.75rem;
     color: var(--muted-foreground);
     margin-bottom: 0.75rem;
   }
