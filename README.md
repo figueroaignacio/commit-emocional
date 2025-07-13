@@ -8,10 +8,10 @@
 
 ## ✨ Características
 
-- 📝 Blog escrito con honestidad
-- 🎨 Diseño minimalista y cálido, pensado para la lectura
-- 🌈 Estilos con variables CSS personalizables
-- 🕶 Fuentes limpias y legibles, combinando emocionalidad y claridad
+- Blog escrito con honestidad
+- Diseño minimalista y cálido, pensado para la lectura
+- Estilos con variables CSS personalizables
+- Fuentes limpias y legibles, combinando emocionalidad y claridad
 
 ## Características Técnicas
 
