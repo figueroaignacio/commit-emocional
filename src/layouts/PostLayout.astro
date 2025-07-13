@@ -1,4 +1,7 @@
 ---
+// Components
+import BackButton from '@/components/BackButton.astro';
+
 import '@/styles/reset.css';
 
 interface Props {
@@ -21,6 +24,7 @@ const { title, description } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    <BackButton />
     <main class="post-layout">
       <article>
         <slot />
