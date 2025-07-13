@@ -18,5 +18,5 @@
 - **Astro**: Generador de sitios estáticos
 - **TypeScript**: Seguridad en el desarrollo
 - **CSS**: Estilos
-- **Sanity** _(opcional)_: Para el contenido del blog
+- **Sanity**: Para el contenido del blog
 - **Hosting recomendado**: Vercel
