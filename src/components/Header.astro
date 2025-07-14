@@ -1,0 +1,39 @@
+<header class="header">
+  <div class="container">
+    <nav>
+      <ul class="header-list">
+        <li>
+          <a href="/posts" class="header-link">Todos los posts</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .container {
+    width: 100%;
+    padding: 1rem;
+    margin: 0 auto;
+    max-width: 47.75rem;
+  }
+
+  .header-list {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .header-link {
+    font-size: 0.9rem;
+    color: var(--muted-foreground);
+
+    &:hover {
+      text-decoration: underline;
+      color: var(--accent);
+    }
+  }
+</style>
