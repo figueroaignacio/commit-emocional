@@ -1,7 +1,9 @@
 ---
 // Components
 import Footer from '@/components/Footer.astro';
+import ClientRouter from 'astro/components/ClientRouter.astro';
 
+// Styles
 import '@/styles/reset.css';
 
 interface Props {
@@ -26,7 +28,8 @@ const {
     <meta name="theme-color" content="#ffffff" />
     <title>{title}</title>
   </head>
-  <body>
+  <body transition:animate="fade">
+    <ClientRouter />
     <main>
       <slot />
     </main>
