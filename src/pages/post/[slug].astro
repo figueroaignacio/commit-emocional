@@ -5,6 +5,9 @@ import PostLayout from '@/layouts/PostLayout.astro';
 // Compoennts
 import PortableText from '@/components/PortableText.astro';
 import Separator from '@/components/Separator.astro';
+import Calendar from '@/icons/Calendar.astro';
+import Clock from '@/icons/Clock.astro';
+import Pencil from '@/icons/Pencil.astro';
 
 // Utils
 import { loadQuery } from '@/sanity/lib/load-query';
@@ -62,7 +65,20 @@ const readingTime = Math.max(1, Math.round(wordCount / 200));
     <h1 class="post-title">{post.title}</h1>
     <p class="post-description">{post.description}</p>
     <p class="post-info">
-      Escrito por el creador · {date} · {readingTime} min de lectura
+      <span class="post-info-item">
+        <Pencil />
+        Escrito por el creador
+      </span>
+      <span> · </span>
+      <span class="post-info-item">
+        <Calendar />
+        {date}
+      </span>
+      <span> · </span>
+      <span class="post-info-item">
+        <Clock />
+        {readingTime} min de lectura
+      </span>
     </p>
   </header>
   <Separator />
@@ -78,6 +94,14 @@ const readingTime = Math.max(1, Math.round(wordCount / 200));
     font-size: 0.75rem;
     color: var(--muted-foreground);
     margin-bottom: 0.75rem;
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .post-info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
   }
 
   .post-title {
