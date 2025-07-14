@@ -46,6 +46,12 @@ export const postType = defineType({
       of: [{ type: 'reference', to: { type: 'category' } }],
     }),
     defineField({
+      name: 'pinned',
+      type: 'boolean',
+      title: 'Pinned',
+      description: 'Marcar si este post debe estar fijado en la parte superior',
+    }),
+    defineField({
       name: 'publishedAt',
       type: 'datetime',
     }),

@@ -15,6 +15,7 @@ const posts = await sanityClient.fetch(
     posts.map((post: any) => (
       <li>
         <PostCard
+          pinned={post.pinned}
           title={post.title}
           description={post.description}
           publishedAt={post.publishedAt}

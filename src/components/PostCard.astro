@@ -1,4 +1,5 @@
 ---
+import DrawingPin from '@/icons/DrawingPin.astro';
 import ExternalLink from '@/icons/ExternalLink.astro';
 
 interface Props {
@@ -6,9 +7,10 @@ interface Props {
   description: string;
   slug: string;
   publishedAt: string;
+  pinned: boolean;
 }
 
-const { title, description, slug, publishedAt } = Astro.props;
+const { title, description, slug, publishedAt, pinned } = Astro.props;
 
 const date = new Date(publishedAt).toLocaleDateString('es-AR', {
   year: 'numeric',
@@ -20,7 +22,7 @@ const date = new Date(publishedAt).toLocaleDateString('es-AR', {
 <article class="post-card">
   <div class="post-card-header">
     <p class="post-card-date">{date}</p>
-    <ExternalLink />
+    {pinned ? <DrawingPin /> : <ExternalLink />}
   </div>
   <a href={`/post/${slug}`} class="post-card-link">
     <h2 class="post-card-title">{title}</h2>
@@ -50,6 +52,7 @@ const date = new Date(publishedAt).toLocaleDateString('es-AR', {
   .post-card-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
   .post-card-title {
