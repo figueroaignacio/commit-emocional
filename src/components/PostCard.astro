@@ -18,34 +18,33 @@ const date = new Date(publishedAt).toLocaleDateString('es-AR', {
 ---
 
 <article class="post-card">
+  <div class="post-card-header">
+    <p class="post-card-date">{date}</p>
+    <ExternalLink />
+  </div>
   <a href={`/post/${slug}`} class="post-card-link">
-    <div class="post-card-header">
-      <p class="post-card-date">{date}</p>
-      <ExternalLink />
-    </div>
     <h2 class="post-card-title">{title}</h2>
-    <p class="post-card-description">{description}</p>
   </a>
+  <p class="post-card-description">{description}</p>
 </article>
 
 <style>
   .post-card {
-    border: 1px solid var(--border);
-    border-radius: 0.5rem;
-    padding: 1rem;
     margin-bottom: 1rem;
     background: var(--background);
     transition: border-color 0.2s ease;
-  }
-
-  .post-card:hover {
-    border-color: var(--muted-foreground);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1rem;
   }
 
   .post-card-link {
     display: block;
     text-decoration: none;
-    color: inherit;
+    color: var(--accent);
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   .post-card-header {
