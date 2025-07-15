@@ -11,7 +11,7 @@ export const postBySlugQuery = `
 `;
 
 export const allPostsQuery = `
-  *[_type == "post"]{
+  *[_type == "post" && defined(slug)]{
     slug
   }
 `;
