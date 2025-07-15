@@ -1,8 +1,7 @@
 ---
-// Layout
 import PostLayout from '@/layouts/PostLayout.astro';
 
-// Compoennts
+// Components
 import PortableText from '@/components/PortableText.astro';
 import Separator from '@/components/Separator.astro';
 import Calendar from '@/icons/Calendar.astro';
@@ -10,12 +9,14 @@ import Clock from '@/icons/Clock.astro';
 import Pencil from '@/icons/Pencil.astro';
 
 // Utils
+import type { Post } from '@/lib/definitions';
+import { formatDate } from '@/lib/utils';
 import { loadQuery } from '@/sanity/lib/load-query';
-import type { SanityDocument } from '@sanity/client';
+import { allPostsQuery, postBySlugQuery } from '@/sanity/lib/queries';
 
 export async function getStaticPaths() {
-  const { data: posts } = await loadQuery<SanityDocument[]>({
-    query: `*[_type == "post"]`,
+  const { data: posts } = await loadQuery<Post[]>({
+    query: allPostsQuery,
   });
 
   return posts.map(({ slug }) => ({
@@ -25,35 +26,18 @@ export async function getStaticPaths() {
 
 const { params } = Astro;
 
-const { data: post } = await loadQuery<{
-  title: string;
-  description: string;
-  publishedAt: string;
-  body: any[];
-  author: { name: string };
-}>({
-  query: `
-    *[_type == "post" && slug.current == $slug][0]{
-      title,
-      description,
-      publishedAt,
-      body,
-      author->{
-        name
-      }
-    }
-  `,
+const { data: post } = await loadQuery<Post>({
+  query: postBySlugQuery,
   params: { slug: params.slug },
 });
 
-const date = new Date(post.publishedAt).toLocaleDateString('es-AR', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
+const date = formatDate(post.publishedAt);
 
 const wordCount = post.body
-  .map((block) => block.children?.map((c: { text: string }) => c.text).join(' ') ?? '')
+  .map(
+    (block: { children: { text: string }[] }) =>
+      block.children?.map((c: { text: string }) => c.text).join(' ') ?? '',
+  )
   .join(' ')
   .split(/\s+/).length;
 
