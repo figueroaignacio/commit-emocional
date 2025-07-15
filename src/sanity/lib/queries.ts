@@ -15,3 +15,13 @@ export const allPostsQuery = `
     slug
   }
 `;
+
+export const pinnedPostsQuery = `
+  *[_type == "post" && defined(slug) && pinned == true] | order(publishedAt desc){
+    title,
+    description,
+    publishedAt,
+    pinned,
+    slug
+  }
+`;

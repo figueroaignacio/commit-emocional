@@ -2,30 +2,36 @@
 // Components
 import PostCard from './PostCard.astro';
 
-import { sanityClient } from 'sanity:client';
+// Utils
+import type { Post } from '@/lib/definitions';
+import { loadQuery } from '@/sanity/lib/load-query';
+import { pinnedPostsQuery } from '@/sanity/lib/queries';
 
-const posts = await sanityClient.fetch(
-  `*[_type == "post" && defined(slug) && pinned == true] | order(publishedAt desc)`,
-);
+const { data: posts } = await loadQuery<Post[]>({
+  query: pinnedPostsQuery,
+});
 ---
 
-<ul class="posts-list">
-  <h2 class="post-list-title">Artículos Fijados</h2>
-  {
-    posts.map((post: any) => (
-      <li>
-        <PostCard
-          pinned={post.pinned}
-          title={post.title}
-          description={post.description}
-          publishedAt={post.publishedAt}
-          slug={post.slug.current}
-        />
-      </li>
-    ))
-  }
-</ul>
-
+{
+  posts.length > 0 ? (
+    <ul class="posts-list">
+      <h2 class="post-list-title">Artículos Fijados</h2>
+      {posts.map((post) => (
+        <li>
+          <PostCard
+            pinned={post.pinned ?? false}
+            title={post.title}
+            description={post.description}
+            publishedAt={post.publishedAt}
+            slug={post.slug.current}
+          />
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p class="no-posts-message">No hay artículos fijados por el momento.</p>
+  )
+}
 <style>
   .posts-list {
     margin-top: 2rem;
@@ -33,5 +39,10 @@ const posts = await sanityClient.fetch(
 
   .post-list-title {
     margin-bottom: 1rem;
+  }
+
+  .no-posts-message {
+    margin-top: 2rem;
+    color: var(--muted-foreground);
   }
 </style>
