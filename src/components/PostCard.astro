@@ -1,6 +1,10 @@
 ---
+// Components
 import DrawingPin from '@/icons/DrawingPin.astro';
 import ExternalLink from '@/icons/ExternalLink.astro';
+
+// Utils
+import { formatDate } from '@/lib/utils';
 
 interface Props {
   title: string;
@@ -12,11 +16,7 @@ interface Props {
 
 const { title, description, slug, publishedAt, pinned } = Astro.props;
 
-const date = new Date(publishedAt).toLocaleDateString('es-AR', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
+const date = formatDate(publishedAt);
 ---
 
 <article class="post-card">
