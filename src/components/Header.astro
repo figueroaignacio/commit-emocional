@@ -1,10 +1,27 @@
+---
+const navigation = [
+  {
+    label: 'Inicio',
+    href: '/',
+  },
+  {
+    label: 'Artículos',
+    href: '/posts',
+  },
+];
+---
+
 <header class="header">
   <div class="container">
     <nav>
       <ul class="header-list">
-        <li>
-          <a href="/posts" class="header-link">Todos los posts</a>
-        </li>
+        {
+          navigation.map((item) => (
+            <a href={item.href} class="header-link">
+              {item.label}
+            </a>
+          ))
+        }
       </ul>
     </nav>
   </div>
@@ -25,6 +42,7 @@
   .header-list {
     display: flex;
     justify-content: flex-end;
+    gap: 1rem;
   }
 
   .header-link {
