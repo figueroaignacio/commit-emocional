@@ -1,6 +1,8 @@
 ---
+// Components
 import MenuIcon from '@/icons/MenuIcon.astro';
 import Cross from '@/icons/Cross.astro';
+import Logo from './Logo.astro';
 
 const navigation = [
   { label: 'Inicio', href: '/' },
@@ -11,7 +13,7 @@ const navigation = [
 <header class="header">
   <div class="container">
     <nav class="nav">
-      <a href="/">CE</a>
+      <Logo />
       <button class="menu-button" id="menuButton" aria-label="Toggle menu" data-state="closed">
         <span class="icon menu-icon"><MenuIcon /></span>
         <span class="icon cross-icon" aria-hidden="true"><Cross /></span>
