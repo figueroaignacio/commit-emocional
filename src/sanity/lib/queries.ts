@@ -4,6 +4,9 @@ export const postBySlugQuery = `
     description,
     publishedAt,
     body,
+    categories[]->{
+      title
+    },
     author->{
       name
     }

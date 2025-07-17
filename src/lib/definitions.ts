@@ -10,5 +10,5 @@ export interface Post {
   slug: {
     current: string;
   };
-  categories: string[];
+  categories: { title: string }[];
 }
