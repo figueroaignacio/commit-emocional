@@ -51,10 +51,18 @@ const date = formatDate(publishedAt);
   }
 
   .post-card-link {
-    display: block;
-    text-decoration: none;
+    display: inline-block;
     color: var(--accent);
     text-decoration: underline;
+    transition: 0.1s ease;
+
+    &:hover {
+      scale: 1.02;
+    }
+
+    &:active {
+      scale: 0.97;
+    }
   }
 
   .post-card-header {
