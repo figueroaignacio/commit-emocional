@@ -1,0 +1,41 @@
+---
+// Components
+import PostCard from './PostCard.astro';
+
+// Definitions
+import type { Post } from '@/lib/definitions';
+
+// Utils
+import { loadQuery } from '@/sanity/lib/load-query';
+import { allPostsQuery } from '@/sanity/lib/queries';
+
+const { data: posts } = await loadQuery<Post[]>({
+  query: allPostsQuery,
+});
+---
+
+{
+  posts.length > 0 ? (
+    <ul class="posts-list">
+      {posts.map((post) => (
+        <li>
+          <PostCard
+            pinned={false}
+            title={post.title}
+            description={post.description}
+            publishedAt={post.publishedAt}
+            slug={post.slug.current}
+          />
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p class="no-posts-message">No hay artículos todavía.</p>
+  )
+}
+
+<style>
+  .posts-list {
+    margin-top: 2rem;
+  }
+</style>

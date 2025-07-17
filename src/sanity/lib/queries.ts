@@ -11,7 +11,11 @@ export const postBySlugQuery = `
 `;
 
 export const allPostsQuery = `
-  *[_type == "post" && defined(slug)]{
+  *[_type == "post" && defined(slug)] | order(publishedAt desc){
+    title,
+    description,
+    publishedAt,
+    pinned,
     slug
   }
 `;

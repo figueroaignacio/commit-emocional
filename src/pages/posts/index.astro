@@ -1,6 +1,10 @@
 ---
 // Layout
 import Layout from '@/layouts/Layout.astro';
+
+// Components
+import AllPosts from '@/components/AllPosts.astro';
+import Separator from '@/components/Separator.astro';
 ---
 
 <Layout
@@ -10,10 +14,12 @@ import Layout from '@/layouts/Layout.astro';
   <section>
     <h1>Todos los Artículos</h1>
     <p class="page-description">
-      Todo lo que escribí cuando no sabía si necesitaba terapia, un abrazo o simplemente volcarlo en
-      palabras.
+      Todo lo que escribí entre mates cuando no sabía si necesitaba terapia, un abrazo o simplemente
+      volcarlo en palabras.
     </p>
+    <Separator />
   </section>
+  <AllPosts />
 </Layout>
 
 <style>
