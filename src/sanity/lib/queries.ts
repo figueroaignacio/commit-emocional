@@ -16,7 +16,10 @@ export const allPostsQuery = `
     description,
     publishedAt,
     pinned,
-    slug
+    slug,
+    categories[]->{
+      title
+    }
   }
 `;
 
@@ -26,6 +29,9 @@ export const pinnedPostsQuery = `
     description,
     publishedAt,
     pinned,
-    slug
+    slug,
+    categories[]->{
+      title
+    }
   }
 `;

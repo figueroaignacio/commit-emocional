@@ -10,4 +10,5 @@ export interface Post {
   slug: {
     current: string;
   };
+  categories: string[];
 }

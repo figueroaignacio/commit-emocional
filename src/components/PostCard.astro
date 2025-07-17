@@ -2,19 +2,21 @@
 // Components
 import DrawingPin from '@/icons/DrawingPin.astro';
 import ExternalLink from '@/icons/ExternalLink.astro';
+import Badge from './Badge.astro';
 
 // Utils
 import { formatDate } from '@/lib/utils';
 
-interface Props {
+interface PostCardProps {
   title: string;
   description: string;
   slug: string;
   publishedAt: string;
   pinned: boolean;
+  categories: { title: string }[];
 }
 
-const { title, description, slug, publishedAt, pinned } = Astro.props;
+const { title, description, slug, publishedAt, pinned, categories } = Astro.props;
 
 const date = formatDate(publishedAt);
 ---
@@ -28,6 +30,15 @@ const date = formatDate(publishedAt);
     <h2 class="post-card-title">{title}</h2>
   </a>
   <p class="post-card-description">{description}</p>
+  <ul class="post-card-categories">
+    {
+      categories.map((category: { title: string }) => (
+        <li>
+          <Badge>{category.title}</Badge>
+        </li>
+      ))
+    }
+  </ul>
 </article>
 
 <style>
@@ -67,5 +78,10 @@ const date = formatDate(publishedAt);
   .post-card-date {
     font-size: 0.7rem;
     color: var(--muted-foreground);
+  }
+
+  .post-card-categories {
+    display: flex;
+    gap: 0.75rem;
   }
 </style>

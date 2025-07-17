@@ -24,6 +24,7 @@ const { data: posts } = await loadQuery<Post[]>({
             description={post.description}
             publishedAt={post.publishedAt}
             slug={post.slug.current}
+            categories={post.categories}
           />
         </li>
       ))}
