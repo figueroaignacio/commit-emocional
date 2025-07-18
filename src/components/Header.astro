@@ -39,6 +39,9 @@ const navigation = [
     border-bottom: 1px solid var(--border);
     padding-block: 0.75rem;
     background-color: var(--card);
+    position: sticky;
+    inset: 0;
+    backdrop-filter: blur(0.4375rem);
   }
 
   .container {
@@ -71,6 +74,7 @@ const navigation = [
   .menu-button[data-state='open'] .menu-icon {
     display: none;
   }
+
   .menu-button[data-state='open'] .cross-icon {
     display: inline;
   }
