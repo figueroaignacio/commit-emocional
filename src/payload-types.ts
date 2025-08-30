@@ -68,6 +68,8 @@ export interface Config {
   blocks: {};
   collections: {
     users: User;
+    posts: Post;
+    categories: Category;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -75,6 +77,8 @@ export interface Config {
   collectionsJoins: {};
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
+    posts: PostsSelect<false> | PostsSelect<true>;
+    categories: CategoriesSelect<false> | CategoriesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -137,14 +141,130 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts".
+ */
+export interface Post {
+  id: number;
+  title: string;
+  /**
+   * URL amigable para el post
+   */
+  slug: string;
+  /**
+   * Contenido principal del post
+   */
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  /**
+   * Resumen breve del post (máx. 300 caracteres)
+   */
+  excerpt?: string | null;
+  category: number | Category;
+  /**
+   * Etiquetas del post
+   */
+  tags?:
+    | {
+        tag: string;
+        id?: string | null;
+      }[]
+    | null;
+  status?: ('draft' | 'published' | 'scheduled') | null;
+  /**
+   * Fecha de publicación
+   */
+  publishedDate?: string | null;
+  /**
+   * Marcar como post destacado
+   */
+  featured?: boolean | null;
+  seo?: {
+    /**
+     * Título SEO (máx. 60 caracteres)
+     */
+    metaTitle?: string | null;
+    /**
+     * Descripción SEO (máx. 160 caracteres)
+     */
+    metaDescription?: string | null;
+    /**
+     * Palabras clave separadas por comas
+     */
+    keywords?: string | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories".
+ */
+export interface Category {
+  id: number;
+  name: string;
+  /**
+   * URL amigable para la categoría
+   */
+  slug: string;
+  description?: string | null;
+  /**
+   * Color hex para la categoría (#000000)
+   */
+  color?: string | null;
+  /**
+   * Categoría padre (para crear subcategorías)
+   */
+  parentCategory?: (number | null) | Category;
+  /**
+   * Mostrar en categorías destacadas
+   */
+  featured?: boolean | null;
+  seo?: {
+    /**
+     * Título SEO (máx. 60 caracteres)
+     */
+    metaTitle?: string | null;
+    /**
+     * Descripción SEO (máx. 160 caracteres)
+     */
+    metaDescription?: string | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
   id: number;
-  document?: {
-    relationTo: 'users';
-    value: number | User;
-  } | null;
+  document?:
+    | ({
+        relationTo: 'users';
+        value: number | User;
+      } | null)
+    | ({
+        relationTo: 'posts';
+        value: number | Post;
+      } | null)
+    | ({
+        relationTo: 'categories';
+        value: number | Category;
+      } | null);
   globalSlug?: string | null;
   user: {
     relationTo: 'users';
@@ -208,6 +328,56 @@ export interface UsersSelect<T extends boolean = true> {
         createdAt?: T;
         expiresAt?: T;
       };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts_select".
+ */
+export interface PostsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  content?: T;
+  excerpt?: T;
+  category?: T;
+  tags?:
+    | T
+    | {
+        tag?: T;
+        id?: T;
+      };
+  status?: T;
+  publishedDate?: T;
+  featured?: T;
+  seo?:
+    | T
+    | {
+        metaTitle?: T;
+        metaDescription?: T;
+        keywords?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories_select".
+ */
+export interface CategoriesSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  description?: T;
+  color?: T;
+  parentCategory?: T;
+  featured?: T;
+  seo?:
+    | T
+    | {
+        metaTitle?: T;
+        metaDescription?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
