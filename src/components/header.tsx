@@ -15,7 +15,7 @@ const links = [
 export function Header() {
   return (
     <header className="border-b border-border backdrop-blur-sm sticky top-0 z-50">
-      <div className="max-w-4xl mx-auto px-6 py-2">
+      <div className="container py-3">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl">COEM</h1>
