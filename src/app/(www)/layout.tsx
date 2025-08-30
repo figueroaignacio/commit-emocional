@@ -3,6 +3,9 @@ import React from 'react'
 // Components
 import { Header } from '@/components/header'
 
+// Font
+import { fontSans } from '@/lib/font'
+
 // Styles
 import '@/css/globals.css'
 
@@ -17,7 +20,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
   return (
     <html lang="en">
-      <body>
+      <body className={`${fontSans.className}`}>
         <div>
           <Header />
           <main>{children}</main>
