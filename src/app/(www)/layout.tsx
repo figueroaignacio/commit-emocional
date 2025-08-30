@@ -1,5 +1,8 @@
 import React from 'react'
 
+// Components
+import { Header } from '@/components/header'
+
 // Styles
 import '@/css/globals.css'
 
@@ -15,7 +18,10 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <main>{children}</main>
+        <div>
+          <Header />
+          <main>{children}</main>
+        </div>
       </body>
     </html>
   )
