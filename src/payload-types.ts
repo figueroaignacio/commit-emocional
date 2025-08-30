@@ -233,16 +233,6 @@ export interface Category {
    * Mostrar en categorías destacadas
    */
   featured?: boolean | null;
-  seo?: {
-    /**
-     * Título SEO (máx. 60 caracteres)
-     */
-    metaTitle?: string | null;
-    /**
-     * Descripción SEO (máx. 160 caracteres)
-     */
-    metaDescription?: string | null;
-  };
   updatedAt: string;
   createdAt: string;
 }
@@ -370,12 +360,6 @@ export interface CategoriesSelect<T extends boolean = true> {
   color?: T;
   parentCategory?: T;
   featured?: T;
-  seo?:
-    | T
-    | {
-        metaTitle?: T;
-        metaDescription?: T;
-      };
   updatedAt?: T;
   createdAt?: T;
 }
