@@ -1,6 +1,7 @@
 import React from 'react'
 
 // Components
+import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
 
 // Font
@@ -24,6 +25,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <div>
           <Header />
           <main>{children}</main>
+          <Footer />
         </div>
       </body>
     </html>
