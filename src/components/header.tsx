@@ -7,7 +7,7 @@ const links = [
     href: '/',
   },
   {
-    label: 'Todos los articulos',
+    label: 'Artículos',
     href: '/articles',
   },
 ]
@@ -25,7 +25,7 @@ export function Header() {
               <Link
                 key={index}
                 href={link.href}
-                className="text-muted-foreground hover:text-primary hover:underline transition-colors duration-150"
+                className="text-muted-foreground hover:text-primary hover:underline transition-colors duration-150 text-sm"
               >
                 {link.label}
               </Link>
