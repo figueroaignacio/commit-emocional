@@ -1,5 +1,3 @@
-// Components
-
 export function Hero() {
   return (
     <section className="container min-h-[20lvh] flex flex-col justify-center gap-y-4 my-7">
