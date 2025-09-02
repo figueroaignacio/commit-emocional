@@ -22,7 +22,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={`${fontSans.className}`}>
-        <div>
+        <div className="grid min-h-screen grid-rows-[auto_1fr_auto]">
           <Header />
           <main>{children}</main>
           <Footer />
