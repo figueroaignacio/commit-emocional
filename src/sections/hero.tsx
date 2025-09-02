@@ -1,11 +1,13 @@
-export function Hero() {
+type HeroProps = {
+  title: string
+  description: string
+}
+
+export function Hero({ description, title }: HeroProps) {
   return (
     <section className="container min-h-[20lvh] flex flex-col justify-center gap-y-4 my-7">
-      <h1 className="text-2xl font-bold">Bienvenido a mi espacio personal</h1>
-      <p className="text-muted-foreground font-sm">
-        Qué se yo… soy un pibe que piensa demasiado y escribe cuando el caos mental aprieta.
-        Bienvenido a donde nada está del todo claro, pero algo siempre sale.
-      </p>
+      <h1 className="text-2xl font-bold">{title}</h1>
+      <p className="text-muted-foreground font-sm">{description}</p>
     </section>
   )
 }
