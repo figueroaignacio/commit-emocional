@@ -86,29 +86,6 @@ export const Posts: CollectionConfig = {
       ],
     },
     {
-      name: 'seo',
-      type: 'group',
-      label: 'SEO',
-      fields: [
-        {
-          name: 'metaTitle',
-          type: 'text',
-          maxLength: 60,
-          admin: {
-            description: 'Título SEO (máx. 60 caracteres)',
-          },
-        },
-        {
-          name: 'metaDescription',
-          type: 'textarea',
-          maxLength: 160,
-          admin: {
-            description: 'Descripción SEO (máx. 160 caracteres)',
-          },
-        },
-      ],
-    },
-    {
       name: 'status',
       type: 'select',
       options: [
