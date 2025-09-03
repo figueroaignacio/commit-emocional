@@ -7,3 +7,10 @@ export async function getFeaturedPosts() {
 
   return data.docs
 }
+
+export async function getPosts() {
+  const res = await fetch(`${API_URL}/api/posts`)
+  const data = await res.json()
+
+  return data.docs
+}

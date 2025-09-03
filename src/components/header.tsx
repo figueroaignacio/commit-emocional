@@ -7,8 +7,8 @@ const links = [
     href: '/',
   },
   {
-    label: 'Artículos',
-    href: '/articles',
+    label: 'Publicaciones',
+    href: '/posts',
   },
 ]
 
