@@ -1,6 +1,5 @@
 // Sections
 import { FeaturedPosts } from '@/sections/featured-posts'
-import { Features } from '@/sections/features'
 import { Hero } from '@/sections/hero'
 
 export default function HomePage() {
@@ -11,7 +10,6 @@ export default function HomePage() {
         title="Bienvenido a mi espacio personal"
       />
       <FeaturedPosts />
-      <Features />
     </div>
   )
 }
