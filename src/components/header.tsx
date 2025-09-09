@@ -17,9 +17,9 @@ export function Header() {
     <header className="border-b border-border backdrop-blur-sm sticky top-0 z-50">
       <div className="container py-3">
         <div className="flex items-center justify-between">
-          <div>
+          {/* <div>
             <h1 className="text-2xl">COEM</h1>
-          </div>
+          </div> */}
           <nav className="hidden md:flex items-center gap-6">
             {links.map((link, index) => (
               <Link
