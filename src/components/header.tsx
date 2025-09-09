@@ -15,8 +15,8 @@ const links = [
 export function Header() {
   return (
     <header className="border-b border-border backdrop-blur-sm sticky top-0 z-50">
-      <div className="container py-3">
-        <div className="flex items-center justify-between">
+      <div className="container py-6">
+        <div className="flex items-center justify-end">
           {/* <div>
             <h1 className="text-2xl">COEM</h1>
           </div> */}
