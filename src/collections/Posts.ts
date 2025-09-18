@@ -54,7 +54,7 @@ export const Posts: CollectionConfig = {
       },
     },
     {
-      name: 'excerpt',
+      name: 'description',
       type: 'textarea',
       maxLength: 300,
       admin: {

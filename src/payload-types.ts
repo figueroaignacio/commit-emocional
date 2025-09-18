@@ -171,7 +171,7 @@ export interface Post {
   /**
    * Resumen breve del post (máx. 300 caracteres)
    */
-  excerpt?: string | null;
+  description?: string | null;
   category: number | Category;
   /**
    * Etiquetas del post
@@ -327,7 +327,7 @@ export interface PostsSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
   content?: T;
-  excerpt?: T;
+  description?: T;
   category?: T;
   tags?:
     | T
