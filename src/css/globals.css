@@ -37,7 +37,7 @@ body {
   }
 
   .prose p {
-    @apply mb-3;
+    @apply mb-3 leading-7;
   }
 
   .prose h2 {
