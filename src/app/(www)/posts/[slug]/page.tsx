@@ -1,4 +1,5 @@
 // Components
+import { PostHeader } from '@/components/post-header'
 import { RichText } from '@payloadcms/richtext-lexical/react'
 
 // Utils
@@ -22,10 +23,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <article className="space-y-5 my-5">
-      <div className="container space-y-3 ">
-        <h1 className="text-xl font-bold">{post.title}</h1>
-        <p className="text-muted-foreground border-b border-border pb-5">{post.excerpt}</p>
-      </div>
+      <PostHeader description={post.description ?? ''} title={post.title} />
       <RichText data={post.content} className="container" />
     </article>
   )
