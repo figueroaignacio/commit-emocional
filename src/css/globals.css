@@ -1,14 +1,19 @@
 @import 'tailwindcss';
 
 :root {
-  --background: oklab(15.459999999999999% 0.00011 -0.00662);
-  --foreground: oklab(98.41499999999999% -0.00128 -0.00327);
-  --card: oklab(19.535% -0.00085 -0.00863);
-  --primary: oklab(62.31% -0.03321 -0.18515);
-  --muted: oklab(19.535% -0.00085 -0.00863);
-  --muted-foreground: oklab(71.068% -0.00802 -0.03427);
-  --accent: oklab(19.535% -0.00085 -0.00863);
-  --border: oklab(25.1% -0.00169 -0.01034);
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(222, 47%, 11%);
+  --card: hsl(240, 17%, 98%);
+  --card-foreground: hsl(222, 47%, 11%);
+  --primary: hsl(217, 91%, 60%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(214, 95%, 93%);
+  --secondary-foreground: hsl(226, 71%, 40%);
+  --muted: hsl(210, 40%, 96%);
+  --muted-foreground: hsl(215, 16%, 47%);
+  --accent: hsl(240, 17%, 98%);
+  --accent-foreground: hsl(222, 47%, 11%);
+  --border: hsl(214, 25%, 84%);
 }
 
 @theme inline {
@@ -26,6 +31,20 @@ body {
   @apply bg-background text-foreground;
 }
 
-.container {
-  @apply max-w-2xl mx-auto px-4 sm:px-6 lg:px-8;
+@layer {
+  .container {
+    @apply max-w-2xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .prose p {
+    @apply mb-3;
+  }
+
+  .prose h2 {
+    @apply text-lg font-semibold border-b border-border mb-3 pb-3;
+  }
+
+  .prose blockquote {
+    @apply mb-3 border-l-4 border-primary rounded-md pl-4 py-2 text-sm;
+  }
 }

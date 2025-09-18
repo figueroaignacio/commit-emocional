@@ -15,10 +15,10 @@ export function PostCard({
   publishedDate,
 }: Pick<Post, 'slug' | 'featured' | 'title' | 'excerpt' | 'excerpt' | 'publishedDate'>) {
   return (
-    <div className="group border-b border-border">
+    <div>
       <div className="flex items-center justify-between mb-3">
         <Link href={`/posts/${slug}`}>
-          <h3 className="text-lg font-semibold transition-colors underline">{title}</h3>
+          <h3 className="text-lg font-semibold transition-colors">{title}</h3>
         </Link>
         <span className="text-xs text-muted-foreground">{resetDateLocal(publishedDate)}</span>
       </div>
