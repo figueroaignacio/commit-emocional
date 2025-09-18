@@ -8,7 +8,7 @@ import { getPosts } from '@/lib/api'
 import { Post } from '@/payload-types'
 
 export async function AllPosts() {
-  const posts = (await getPosts()) as Post[]
+  const posts: Post[] = await getPosts()
 
   return (
     <ul className="container space-y-5">
