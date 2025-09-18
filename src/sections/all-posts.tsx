@@ -17,7 +17,7 @@ export async function AllPosts() {
           <PostCard
             title={post.title}
             slug={post.slug}
-            excerpt={post.excerpt}
+            description={post.description}
             publishedDate={post.publishedDate}
           />
         </li>

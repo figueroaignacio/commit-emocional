@@ -15,7 +15,7 @@ type PostPageProps = {
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-  const post = (await getPostBySlug(params.slug)) as unknown as Post
+  const post: Post = await getPostBySlug(params.slug)
 
   if (!post) {
     return <p className="text-red-600/30">Error</p>

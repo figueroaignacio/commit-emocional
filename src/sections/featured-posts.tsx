@@ -8,7 +8,7 @@ import { getFeaturedPosts } from '@/lib/api'
 import { type Post } from '@/payload-types'
 
 export async function FeaturedPosts() {
-  const featuredPosts = (await getFeaturedPosts()) as Post[]
+  const featuredPosts: Post[] = await getFeaturedPosts()
 
   return (
     <section className="container min-h-[20lvh]">
@@ -19,7 +19,7 @@ export async function FeaturedPosts() {
             <PostCard
               title={post.title}
               slug={post.slug}
-              excerpt={post.excerpt}
+              description={post.description}
               publishedDate={post.publishedDate}
             />
           </li>
