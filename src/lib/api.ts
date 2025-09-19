@@ -8,13 +8,18 @@ export async function getFeaturedPosts() {
   return data.docs
 }
 
-export async function getPosts() {
-  const res = await fetch(`${API_URL}/api/posts`)
+export async function getPosts(categorySlug?: string) {
+  let url = `${API_URL}/api/posts`
+
+  if (categorySlug) {
+    url += `?where[category.slug][equals]=${categorySlug}`
+  }
+
+  const res = await fetch(url)
   const data = await res.json()
 
   return data.docs
 }
-
 export async function getPostBySlug(slug: string) {
   const res = await fetch(`${API_URL}/api/posts/?where[slug][equals]=${slug}`)
 
@@ -22,4 +27,11 @@ export async function getPostBySlug(slug: string) {
 
   const data = await res.json()
   return data.docs?.[0] ?? null
+}
+
+export async function getCategories() {
+  const res = await fetch(`${API_URL}/api/categories`)
+  const data = await res.json()
+
+  return data.docs
 }
