@@ -9,13 +9,14 @@ import { getPostBySlug } from '@/lib/services'
 import { Post } from '@/payload-types'
 
 interface PostPageProps {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-  const post: Post = await getPostBySlug(params.slug)
+  const { slug } = await params
+  const post: Post = await getPostBySlug(slug)
 
   if (!post) {
     return <p className="text-red-600/30">Error</p>
