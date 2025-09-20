@@ -8,7 +8,7 @@ import { getPostBySlug } from '@/lib/services'
 // Types
 import { Post } from '@/payload-types'
 
-type PostPageProps = {
+interface PostPageProps {
   params: {
     slug: string
   }

@@ -1,4 +1,4 @@
-type HeroProps = {
+interface HeroProps {
   title: string
   description: string
 }

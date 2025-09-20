@@ -1,4 +1,4 @@
-type CardProps = {
+interface CardProps {
   icon?: React.JSX.Element
   title: string
   description: string
