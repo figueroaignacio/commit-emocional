@@ -2,7 +2,7 @@
 import { PostCard } from '@/components/post-card'
 
 // Utils
-import { getFeaturedPosts } from '@/lib/api'
+import { getFeaturedPosts } from '@/lib/services'
 
 // Types
 import { type Post } from '@/payload-types'

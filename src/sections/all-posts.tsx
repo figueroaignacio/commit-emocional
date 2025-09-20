@@ -3,7 +3,7 @@ import { PostCard } from '@/components/post-card'
 import { CategoryFilter } from './category-filter'
 
 // Utils
-import { getCategories, getPosts } from '@/lib/api'
+import { getCategories, getPosts } from '@/lib/services'
 
 // Types
 import { Category, Post } from '@/payload-types'
