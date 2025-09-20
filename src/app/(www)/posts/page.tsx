@@ -3,13 +3,14 @@ import { AllPosts } from '@/sections/all-posts'
 import { Hero } from '@/sections/hero'
 
 interface ArticlesPageProps {
-  searchParams: {
+  searchParams: Promise<{
     category?: string
-  }
+  }>
 }
 
 export default async function ArticlesPage({ searchParams }: ArticlesPageProps) {
-  const categorySlug = searchParams.category
+  const { category } = await searchParams
+  const categorySlug = category
 
   return (
     <section>
