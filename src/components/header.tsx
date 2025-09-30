@@ -20,7 +20,7 @@ export function Header() {
           {/* <div>
             <h1 className="text-2xl">COEM</h1>
           </div> */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="flex items-center gap-6">
             {links.map((link, index) => (
               <Link
                 key={index}

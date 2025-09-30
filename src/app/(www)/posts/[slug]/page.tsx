@@ -25,7 +25,7 @@ export default async function PostPage({ params }: PostPageProps) {
   return (
     <article className="space-y-5 my-5">
       <PostHeader description={post.description ?? ''} title={post.title} />
-      <RichText data={post.content} className="container prose" />
+      <RichText data={post.content} className="prose prose-container" />
     </article>
   );
 }
