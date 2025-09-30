@@ -1,3 +1,4 @@
+import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import type { CollectionConfig } from 'payload';
 
 export const Posts: CollectionConfig = {
@@ -48,6 +49,7 @@ export const Posts: CollectionConfig = {
     {
       name: 'content',
       type: 'richText',
+      editor: lexicalEditor({}),
       required: true,
       admin: {
         description: 'Contenido principal del post',
