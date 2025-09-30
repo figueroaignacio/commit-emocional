@@ -4,6 +4,7 @@ import { Calendar, PenBox, User2 } from 'lucide-react';
 // Utils
 import { formatDate } from '@/lib/utils';
 
+// Types
 import { type Post } from '@/payload-types';
 
 interface PostHeaderProps extends Pick<Post, 'title' | 'description' | 'createdAt' | 'updatedAt'> {}
