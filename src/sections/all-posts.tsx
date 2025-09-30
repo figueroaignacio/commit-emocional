@@ -37,7 +37,7 @@ export async function AllPosts({ categorySlug }: AllPostsProps) {
           </p>
         </div>
       ) : (
-        <ul className="space-y-5">
+        <ul className="grid grid-cols-2 space-y-5 gap-6 mb-10">
           {posts.map((post) => (
             <li key={post.id}>
               <PostCard

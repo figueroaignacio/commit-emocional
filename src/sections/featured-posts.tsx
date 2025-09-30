@@ -13,7 +13,7 @@ export async function FeaturedPosts() {
   return (
     <section className="container min-h-[20lvh]">
       <h2 className="my-4">Publicaciones destacadas</h2>
-      <ul className="space-y-5">
+      <ul className="space-y-5 grid grid-cols-2 gap-6 mb-10">
         {featuredPosts.map((post) => (
           <li key={post.id}>
             <PostCard
