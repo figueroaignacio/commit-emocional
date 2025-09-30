@@ -6,7 +6,7 @@ import { CategoryFilter } from './category-filter';
 import { getCategories, getPosts } from '@/lib/services';
 
 // Types
-import { Category, Post } from '@/payload-types';
+import type { Category, Post } from '@/payload-types';
 
 interface AllPostsProps {
   categorySlug?: string;
@@ -23,11 +23,6 @@ export async function AllPosts({ categorySlug }: AllPostsProps) {
   return (
     <div className="container">
       <CategoryFilter categories={categories} />
-      {categorySlug && (
-        <div className="mb-6">
-          <h2 className="font-bold mb-2">Posts en {currentCategory?.name || categorySlug}</h2>
-        </div>
-      )}
       {posts.length === 0 ? (
         <div className="py-12">
           <p className="text-muted-foreground">
@@ -37,7 +32,7 @@ export async function AllPosts({ categorySlug }: AllPostsProps) {
           </p>
         </div>
       ) : (
-        <ul className="grid grid-cols-2 space-y-5 gap-6 mb-10">
+        <ul className="grid grid-cols-1 md:grid-cols-2 space-y-5 gap-6 mb-10">
           {posts.map((post) => (
             <li key={post.id}>
               <PostCard

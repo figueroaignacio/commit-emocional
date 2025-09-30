@@ -13,7 +13,7 @@ export function PostHeader({ description, title, createdAt, updatedAt }: PostHea
   const info = [
     {
       icon: <User2 size={14} />,
-      text: 'Autor: Ignacio Figueroa | Desarrollador de COEM',
+      text: 'Autor: Ignacio Figueroa - Desarrollador de COEM',
     },
     {
       icon: <Calendar size={14} />,
@@ -31,7 +31,7 @@ export function PostHeader({ description, title, createdAt, updatedAt }: PostHea
         <h1 className="text-xl font-bold text-primary">{title}</h1>
         {description ? <p className="text-muted-foreground ">{description}</p> : null}
       </div>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-col flex-wrap gap-2">
         {info.map((item, idx) => (
           <div key={idx} className="flex items-center gap-x-2">
             {item.icon}
