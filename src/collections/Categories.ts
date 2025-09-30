@@ -1,4 +1,4 @@
-import type { CollectionConfig, CollectionSlug } from 'payload';
+import type { CollectionConfig, CollectionSlug, PayloadRequest } from 'payload';
 
 export const Categories: CollectionConfig = {
   slug: 'categories',
@@ -97,7 +97,7 @@ export const Categories: CollectionConfig = {
   timestamps: true,
   hooks: {
     beforeDelete: [
-      async ({ req, id }: { req: any; id: string | number }) => {
+      async ({ req, id }: { req: PayloadRequest; id: string | number }) => {
         const posts = await req.payload.find({
           collection: 'posts',
           where: {

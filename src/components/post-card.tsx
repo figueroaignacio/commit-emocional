@@ -8,12 +8,10 @@ import { type Post } from '@/payload-types';
 // Utils
 import { resetDateLocal } from '@/lib/utils';
 
-export function PostCard({
-  slug,
-  title,
-  description,
-  publishedDate,
-}: Pick<Post, 'slug' | 'featured' | 'title' | 'description' | 'publishedDate'>) {
+interface PostCardProps
+  extends Pick<Post, 'slug' | 'featured' | 'title' | 'description' | 'publishedDate'> {}
+
+export function PostCard({ slug, title, description, publishedDate }: PostCardProps) {
   return (
     <div className="border-l-8 border-primary rounded-md p-4">
       <div className="flex items-center justify-between mb-3">

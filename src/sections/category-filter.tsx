@@ -7,7 +7,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { Categories } from './categories';
 
 // Types
-import { Category } from '@/payload-types';
+import { type Category } from '@/payload-types';
 
 interface CategoryFilterProps {
   categories: Category[];

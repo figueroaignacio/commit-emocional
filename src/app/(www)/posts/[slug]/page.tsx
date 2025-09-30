@@ -6,7 +6,7 @@ import { RichText } from '@payloadcms/richtext-lexical/react';
 import { getPostBySlug } from '@/lib/services';
 
 // Types
-import { Post } from '@/payload-types';
+import { type Post } from '@/payload-types';
 
 interface PostPageProps {
   params: Promise<{

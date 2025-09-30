@@ -1,5 +1,5 @@
 // Types
-import { Category } from '@/payload-types';
+import { type Category } from '@/payload-types';
 
 interface CategoriesProps {
   categories: Category[];

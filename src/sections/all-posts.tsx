@@ -25,7 +25,7 @@ export async function AllPosts({ categorySlug }: AllPostsProps) {
       <CategoryFilter categories={categories} />
       {categorySlug && (
         <div className="mb-6">
-          <h2 className="font-bold mb-2">Posts en "{currentCategory?.name || categorySlug}"</h2>
+          <h2 className="font-bold mb-2">Posts en {currentCategory?.name || categorySlug}</h2>
         </div>
       )}
       {posts.length === 0 ? (

@@ -157,7 +157,7 @@ export const Posts: CollectionConfig = {
         },
       ],
       admin: {
-        condition: (data: any, siblingData: any) => Boolean(data?.status === 'published'),
+        condition: (data: { status?: string }) => Boolean(data?.status === 'published'),
       },
     },
   ],
