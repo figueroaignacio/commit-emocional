@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { type Post } from '@/payload-types';
 
 // Utils
-import { resetDateLocal } from '@/lib/utils';
+import { formatDate } from '@/lib/utils';
 
 interface PostCardProps
   extends Pick<Post, 'slug' | 'featured' | 'title' | 'description' | 'publishedDate'> {}
@@ -18,7 +18,7 @@ export function PostCard({ slug, title, description, publishedDate }: PostCardPr
         <Link href={`/posts/${slug}`}>
           <h3 className="text-lg font-semibold transition-colors">{title}</h3>
         </Link>
-        <span className="text-xs text-muted-foreground">{resetDateLocal(publishedDate)}</span>
+        <span className="text-xs text-muted-foreground">{formatDate(publishedDate)}</span>
       </div>
       <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-2">
         {description}

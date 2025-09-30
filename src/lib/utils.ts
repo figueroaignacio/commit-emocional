@@ -1,12 +1,10 @@
-export function resetDateLocal(dateInput: string | Date | null | undefined): string {
-  if (!dateInput) return '';
+import { format } from 'date-fns';
+import { es } from 'date-fns/locale';
 
-  const date = new Date(dateInput);
-  const reset = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+export function formatDate(date: string | Date | null | undefined): string {
+  if (!date) return '';
 
-  return new Intl.DateTimeFormat('es-AR', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  }).format(reset);
+  const parsedDate = new Date(date);
+
+  return format(parsedDate, "d 'de' MMMM 'de' yyyy", { locale: es });
 }

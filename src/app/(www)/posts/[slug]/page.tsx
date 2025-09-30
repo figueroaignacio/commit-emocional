@@ -24,7 +24,12 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <article className="space-y-5 my-5">
-      <PostHeader description={post.description ?? ''} title={post.title} />
+      <PostHeader
+        description={post.description ?? ''}
+        title={post.title}
+        createdAt={post.createdAt}
+        updatedAt={post.updatedAt}
+      />
       <RichText data={post.content} className="prose prose-container" />
     </article>
   );
