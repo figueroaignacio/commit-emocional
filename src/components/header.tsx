@@ -1,5 +1,5 @@
 // Components
-import Link from 'next/link'
+import Link from 'next/link';
 
 const links = [
   {
@@ -10,7 +10,7 @@ const links = [
     label: 'Publicaciones',
     href: '/posts',
   },
-]
+];
 
 export function Header() {
   return (
@@ -34,5 +34,5 @@ export function Header() {
         </div>
       </div>
     </header>
-  )
+  );
 }

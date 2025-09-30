@@ -1,4 +1,4 @@
-import type { CollectionConfig, CollectionSlug } from 'payload'
+import type { CollectionConfig, CollectionSlug } from 'payload';
 
 export const Categories: CollectionConfig = {
   slug: 'categories',
@@ -37,9 +37,9 @@ export const Categories: CollectionConfig = {
               return data.name
                 .toLowerCase()
                 .replace(/ /g, '-')
-                .replace(/[^\w-]+/g, '')
+                .replace(/[^\w-]+/g, '');
             }
-            return value
+            return value;
           },
         ],
       },
@@ -61,19 +61,19 @@ export const Categories: CollectionConfig = {
       validate: (value: string | string[] | null | undefined) => {
         if (typeof value === 'string') {
           if (value && !/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(value)) {
-            return 'Debe ser un color hex válido (ej: #3B82F6)'
+            return 'Debe ser un color hex válido (ej: #3B82F6)';
           }
-          return true
+          return true;
         }
         if (Array.isArray(value)) {
           for (const v of value) {
             if (v && !/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(v)) {
-              return 'Debe ser un color hex válido (ej: #3B82F6)'
+              return 'Debe ser un color hex válido (ej: #3B82F6)';
             }
           }
-          return true
+          return true;
         }
-        return true
+        return true;
       },
     },
     {
@@ -106,12 +106,12 @@ export const Categories: CollectionConfig = {
             },
           },
           limit: 1,
-        })
+        });
 
         if (posts.docs.length > 0) {
-          throw new Error('No se puede eliminar la categoría porque tiene posts asociados')
+          throw new Error('No se puede eliminar la categoría porque tiene posts asociados');
         }
       },
     ],
   },
-}
+};

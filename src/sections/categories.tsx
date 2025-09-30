@@ -1,10 +1,10 @@
 // Types
-import { Category } from '@/payload-types'
+import { Category } from '@/payload-types';
 
 interface CategoriesProps {
-  categories: Category[]
-  currentCategory: string | null
-  onCategoryChange: (categorySlug: string | null) => void
+  categories: Category[];
+  currentCategory: string | null;
+  onCategoryChange: (categorySlug: string | null) => void;
 }
 
 export function Categories({ categories, currentCategory, onCategoryChange }: CategoriesProps) {
@@ -38,5 +38,5 @@ export function Categories({ categories, currentCategory, onCategoryChange }: Ca
         </button>
       ))}
     </>
-  )
+  );
 }

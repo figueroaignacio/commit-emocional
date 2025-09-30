@@ -1,34 +1,34 @@
-'use client'
+'use client';
 
 // Hooks
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation';
 
 // Components
-import { Categories } from './categories'
+import { Categories } from './categories';
 
 // Types
-import { Category } from '@/payload-types'
+import { Category } from '@/payload-types';
 
 interface CategoryFilterProps {
-  categories: Category[]
+  categories: Category[];
 }
 
 export function CategoryFilter({ categories }: CategoryFilterProps) {
-  const router = useRouter()
-  const searchParams = useSearchParams()
-  const currentCategory = searchParams.get('category')
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const currentCategory = searchParams.get('category');
 
   const handleCategoryChange = (categorySlug: string | null) => {
-    const params = new URLSearchParams(searchParams)
+    const params = new URLSearchParams(searchParams);
 
     if (categorySlug) {
-      params.set('category', categorySlug)
+      params.set('category', categorySlug);
     } else {
-      params.delete('category')
+      params.delete('category');
     }
 
-    router.push(`?${params.toString()}`)
-  }
+    router.push(`?${params.toString()}`);
+  };
 
   return (
     <div className="mb-8">
@@ -41,5 +41,5 @@ export function CategoryFilter({ categories }: CategoryFilterProps) {
         />
       </div>
     </div>
-  )
+  );
 }

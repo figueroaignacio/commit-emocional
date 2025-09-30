@@ -1,14 +1,14 @@
 // Components
-import { PostCard } from '@/components/post-card'
+import { PostCard } from '@/components/post-card';
 
 // Utils
-import { getFeaturedPosts } from '@/lib/services'
+import { getFeaturedPosts } from '@/lib/services';
 
 // Types
-import { type Post } from '@/payload-types'
+import { type Post } from '@/payload-types';
 
 export async function FeaturedPosts() {
-  const featuredPosts: Post[] = await getFeaturedPosts()
+  const featuredPosts: Post[] = await getFeaturedPosts();
 
   return (
     <section className="container min-h-[20lvh]">
@@ -26,5 +26,5 @@ export async function FeaturedPosts() {
         ))}
       </ul>
     </section>
-  )
+  );
 }

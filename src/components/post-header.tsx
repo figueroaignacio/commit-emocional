@@ -1,6 +1,6 @@
 interface PostHeaderProps {
-  title: string
-  description: string
+  title: string;
+  description: string;
 }
 
 export function PostHeader({ description, title }: PostHeaderProps) {
@@ -11,5 +11,5 @@ export function PostHeader({ description, title }: PostHeaderProps) {
         <p className="text-muted-foreground border-b border-border pb-5">{description}</p>
       ) : null}
     </div>
-  )
+  );
 }

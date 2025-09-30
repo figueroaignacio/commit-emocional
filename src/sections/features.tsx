@@ -1,6 +1,6 @@
 // Componetns
-import { Card } from '@/components/card'
-import { Book, CloudRain, Edit3, Heart, Lamp, MapPin, MessageCircle, Star } from 'lucide-react'
+import { Card } from '@/components/card';
+import { Book, CloudRain, Edit3, Heart, Lamp, MapPin, MessageCircle, Star } from 'lucide-react';
 
 export const features = [
   {
@@ -50,7 +50,7 @@ export const features = [
     description:
       'Un espacio para liberar pensamientos y emociones que necesitas sacar de tu mente.',
   },
-]
+];
 
 export function Features() {
   return (
@@ -70,5 +70,5 @@ export function Features() {
         ))}
       </ul>
     </section>
-  )
+  );
 }

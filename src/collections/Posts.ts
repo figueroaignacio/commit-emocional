@@ -1,4 +1,4 @@
-import type { CollectionConfig } from 'payload'
+import type { CollectionConfig } from 'payload';
 
 export const Posts: CollectionConfig = {
   slug: 'posts',
@@ -33,14 +33,14 @@ export const Posts: CollectionConfig = {
       hooks: {
         beforeValidate: [
           (args) => {
-            const { value, operation, data } = args
+            const { value, operation, data } = args;
             if ((operation === 'create' || operation === 'update') && data?.title && !value) {
               return data.title
                 .toLowerCase()
                 .replace(/ /g, '-')
-                .replace(/[^\w-]+/g, '')
+                .replace(/[^\w-]+/g, '');
             }
-            return value
+            return value;
           },
         ],
       },
@@ -165,4 +165,4 @@ export const Posts: CollectionConfig = {
   versions: {
     drafts: true,
   },
-}
+};

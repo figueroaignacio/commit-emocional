@@ -1,24 +1,24 @@
 // Components
-import { PostCard } from '@/components/post-card'
-import { CategoryFilter } from './category-filter'
+import { PostCard } from '@/components/post-card';
+import { CategoryFilter } from './category-filter';
 
 // Utils
-import { getCategories, getPosts } from '@/lib/services'
+import { getCategories, getPosts } from '@/lib/services';
 
 // Types
-import { Category, Post } from '@/payload-types'
+import { Category, Post } from '@/payload-types';
 
 interface AllPostsProps {
-  categorySlug?: string
+  categorySlug?: string;
 }
 
 export async function AllPosts({ categorySlug }: AllPostsProps) {
   const [posts, categories]: [Post[], Category[]] = await Promise.all([
     getPosts(categorySlug),
     getCategories(),
-  ])
+  ]);
 
-  const currentCategory = categories.find((cat) => cat.slug === categorySlug)
+  const currentCategory = categories.find((cat) => cat.slug === categorySlug);
 
   return (
     <div className="container">
@@ -51,5 +51,5 @@ export async function AllPosts({ categorySlug }: AllPostsProps) {
         </ul>
       )}
     </div>
-  )
+  );
 }

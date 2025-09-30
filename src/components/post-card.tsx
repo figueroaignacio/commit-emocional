@@ -1,12 +1,12 @@
 // Components
-import { ArrowRightIcon } from 'lucide-react'
-import Link from 'next/link'
+import { ArrowRightIcon } from 'lucide-react';
+import Link from 'next/link';
 
 // Types
-import { type Post } from '@/payload-types'
+import { type Post } from '@/payload-types';
 
 // Utils
-import { resetDateLocal } from '@/lib/utils'
+import { resetDateLocal } from '@/lib/utils';
 
 export function PostCard({
   slug,
@@ -32,5 +32,5 @@ export function PostCard({
         </Link>
       </div>
     </div>
-  )
+  );
 }

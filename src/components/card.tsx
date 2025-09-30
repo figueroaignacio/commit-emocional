@@ -1,7 +1,7 @@
 interface CardProps {
-  icon?: React.JSX.Element
-  title: string
-  description: string
+  icon?: React.JSX.Element;
+  title: string;
+  description: string;
 }
 
 export function Card({ description, title, icon }: CardProps) {
@@ -13,5 +13,5 @@ export function Card({ description, title, icon }: CardProps) {
       </div>
       <p className="text-muted-foreground text-sm">{description}</p>
     </div>
-  )
+  );
 }

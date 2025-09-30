@@ -1,6 +1,6 @@
 // Sections
-import { FeaturedPosts } from '@/sections/featured-posts'
-import { Hero } from '@/sections/hero'
+import { FeaturedPosts } from '@/sections/featured-posts';
+import { Hero } from '@/sections/hero';
 
 export default function HomePage() {
   return (
@@ -11,5 +11,5 @@ export default function HomePage() {
       />
       <FeaturedPosts />
     </div>
-  )
+  );
 }

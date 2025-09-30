@@ -1,16 +1,16 @@
 // Components
-import { AllPosts } from '@/sections/all-posts'
-import { Hero } from '@/sections/hero'
+import { AllPosts } from '@/sections/all-posts';
+import { Hero } from '@/sections/hero';
 
 interface ArticlesPageProps {
   searchParams: Promise<{
-    category?: string
-  }>
+    category?: string;
+  }>;
 }
 
 export default async function ArticlesPage({ searchParams }: ArticlesPageProps) {
-  const { category } = await searchParams
-  const categorySlug = category
+  const { category } = await searchParams;
+  const categorySlug = category;
 
   return (
     <section>
@@ -20,5 +20,5 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
       />
       <AllPosts categorySlug={categorySlug} />
     </section>
-  )
+  );
 }
