@@ -12,12 +12,12 @@ interface PostCardProps
 
 export function PostCard({ slug, title, description, createdAt }: PostCardProps) {
   return (
-    <div className="space-y-3">
-      <span>{formatDate(createdAt)}</span>
-      <Link href={`/posts/${slug}`}>
+    <Link href={`/posts/${slug}`}>
+      <div className="space-y-3 hover:translate-x-1.5 transition-all duration-100 opacity-80 hover:opacity-100 cursor-default">
+        <span>{formatDate(createdAt)}</span>
         <h2 className="text-2xl font-light mt-2 mb-3  transition-colors">{title}</h2>
-      </Link>
-      <p className="text-sm text-muted-foreground leading-relaxed font-light">{description}</p>
-    </div>
+        <p className="text-sm text-muted-foreground leading-relaxed font-light">{description}</p>
+      </div>
+    </Link>
   );
 }
