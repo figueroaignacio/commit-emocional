@@ -1,4 +1,5 @@
 // Components
+import { AnimateIn } from '@/components/animate-in';
 import { PostCard } from '@/components/post-card';
 import { CategoryFilter } from './category-filter';
 
@@ -33,16 +34,21 @@ export async function AllPosts({ categorySlug }: AllPostsProps) {
         </div>
       ) : (
         <ul className="space-y-8">
-          {posts.map((post) => (
-            <li key={post.id}>
-              <PostCard
-                title={post.title}
-                slug={post.slug}
-                description={post.description}
-                createdAt={post.createdAt}
-              />
-            </li>
-          ))}
+          {posts.map((post, index) => {
+            const delay = 0.1 + index * 0.1;
+            return (
+              <div key={post.id} className="space-y-5">
+                <AnimateIn variant="fadeLeft" delay={delay}>
+                  <PostCard
+                    createdAt={post.createdAt}
+                    title={post.title}
+                    slug={post.slug}
+                    description={post.description}
+                  />
+                </AnimateIn>
+              </div>
+            );
+          })}
         </ul>
       )}
     </div>

@@ -4,6 +4,7 @@
 import { useRouter, useSearchParams } from 'next/navigation';
 
 // Components
+import { AnimateIn } from '@/components/animate-in';
 import { Categories } from './categories';
 
 // Types
@@ -32,7 +33,11 @@ export function CategoryFilter({ categories }: CategoryFilterProps) {
 
   return (
     <div className="mb-12">
-      <h3 className="text-sm font-light tracking-wide text-gray-500 mb-6">Filtrar por categoría</h3>
+      <AnimateIn variant="scale">
+        <h3 className="text-sm font-light tracking-wide text-gray-500 mb-6">
+          Filtrar por categoría
+        </h3>
+      </AnimateIn>
       <div className="flex flex-wrap gap-6">
         <Categories
           categories={categories}
