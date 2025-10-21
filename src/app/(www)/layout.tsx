@@ -6,25 +6,51 @@ import { fontSans } from '@/lib/font';
 // Components
 import { Footer } from '@/components/footer';
 
+// Config
+import { siteConfig } from '@/lib/config';
+
 // Styles
 import '@/css/globals.css';
 
-export const metadata = {
-  description:
-    'Escribo para ponerle palabras a lo que me pesa, me inspira o me transforma. Y si en el camino, le sirve a alguien más, entonces habrá valido el doble.',
-  title: 'Commit Emocional',
+// Types
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: `${siteConfig.name} | Reflexiones que inspiran y transforman`,
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: [{ name: siteConfig.author }],
+  openGraph: {
+    title: siteConfig.og.title,
+    description: siteConfig.og.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    type: 'website',
+    images: [
+      {
+        url: siteConfig.og.image,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.og.title,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.og.title,
+    description: siteConfig.og.description,
+    creator: siteConfig.creator,
+    images: [siteConfig.og.image],
+  },
 };
 
-export default async function RootLayout(props: { children: React.ReactNode }) {
-  const { children } = props;
-
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={`${fontSans.className}`}>
-        <div>
-          <main>{children}</main>
-          <Footer />
-        </div>
+    <html lang="es">
+      <body className={fontSans.className}>
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
