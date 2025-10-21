@@ -3,6 +3,9 @@ import React from 'react';
 // Font
 import { fontSans } from '@/lib/font';
 
+// Components
+import { Footer } from '@/components/footer';
+
 // Styles
 import '@/css/globals.css';
 
@@ -20,6 +23,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
       <body className={`${fontSans.className}`}>
         <div>
           <main>{children}</main>
+          <Footer />
         </div>
       </body>
     </html>

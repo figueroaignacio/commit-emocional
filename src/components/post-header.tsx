@@ -1,5 +1,6 @@
 // Components
-import { Calendar, PenBox, User2 } from 'lucide-react';
+import { BackButton } from './back-button';
+import { Logo } from './logo';
 
 // Utils
 import { formatDate } from '@/lib/utils';
@@ -10,23 +11,12 @@ import type { Post } from '@/payload-types';
 interface PostHeaderProps extends Pick<Post, 'title' | 'description' | 'createdAt' | 'updatedAt'> {}
 
 export function PostHeader({ description, title, createdAt, updatedAt }: PostHeaderProps) {
-  const info = [
-    {
-      icon: <User2 size={14} />,
-      text: 'Autor: Ignacio Figueroa - Desarrollador de COEM',
-    },
-    {
-      icon: <Calendar size={14} />,
-      text: `Publicado: ${formatDate(createdAt)}`,
-    },
-    {
-      icon: <PenBox size={14} />,
-      text: `Actualizado: ${formatDate(updatedAt)}`,
-    },
-  ];
-
   return (
     <div className="prose-container space-y-4 border-border border-b pb-4">
+      <div className="flex  justify-between items-center">
+        <BackButton />
+        <Logo />
+      </div>
       <div className="space-y-4">
         <h1 className="text-3xl font-light tracking-tight text-neutral-900">{title}</h1>
         {description ? (
