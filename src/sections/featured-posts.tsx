@@ -20,7 +20,7 @@ export async function FeaturedPosts() {
               title={post.title}
               slug={post.slug}
               description={post.description}
-              publishedDate={post.publishedDate}
+              createdAt={post.createdAt}
             />
           </li>
         ))}
