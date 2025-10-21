@@ -28,9 +28,8 @@ export function Categories({ categories, currentCategory, onCategoryChange }: Ca
       {categories.map((category, index) => {
         const delay = 0.1 + index * 0.1;
         return (
-          <AnimateIn variant="fadeLeft" delay={delay}>
+          <AnimateIn variant="fadeLeft" delay={delay} key={category.id}>
             <button
-              key={category.id}
               onClick={() => onCategoryChange(category.slug)}
               className={`px-3 py-1 text-sm font-light tracking-wide transition-colors
             ${
