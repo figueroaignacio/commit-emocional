@@ -28,24 +28,16 @@
 }
 
 body {
-  @apply bg-background text-foreground;
+  @apply bg-background text-foreground max-w-xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
 @layer {
-  .container {
-    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-
-  .prose-container {
-    @apply max-w-2xl mx-auto px-3;
-  }
-
   .prose p {
-    @apply text-muted-foreground text-pretty;
+    @apply text-foreground/70 text-pretty leading-relaxed mb-6 font-light;
   }
 
   .prose h2 {
-    @apply text-lg text-primary font-semibold border-b border-border my-6 pb-3;
+    @apply text-lg  font-thin border-b border-border my-6 pb-3;
   }
 
   .prose blockquote {

@@ -1,9 +1,5 @@
 import React from 'react';
 
-// Components
-import { Footer } from '@/components/footer';
-import { Header } from '@/components/header';
-
 // Font
 import { fontSans } from '@/lib/font';
 
@@ -22,10 +18,8 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={`${fontSans.className}`}>
-        <div className="grid min-h-screen grid-rows-[auto_1fr_auto]">
-          <Header />
+        <div>
           <main>{children}</main>
-          <Footer />
         </div>
       </body>
     </html>

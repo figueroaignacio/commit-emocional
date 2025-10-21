@@ -21,25 +21,25 @@ export async function AllPosts({ categorySlug }: AllPostsProps) {
   const currentCategory = categories.find((cat) => cat.slug === categorySlug);
 
   return (
-    <div className="container">
+    <div>
       <CategoryFilter categories={categories} />
       {posts.length === 0 ? (
-        <div className="py-12">
-          <p className="text-muted-foreground">
+        <div>
+          <p className="text-gray-400 font-light tracking-wide">
             {categorySlug
               ? `No hay posts en la categoría "${currentCategory?.name || categorySlug}"`
               : 'No hay posts disponibles'}
           </p>
         </div>
       ) : (
-        <ul className="grid grid-cols-1 md:grid-cols-2 space-y-5 gap-6 mb-10">
+        <ul className="space-y-8">
           {posts.map((post) => (
             <li key={post.id}>
               <PostCard
                 title={post.title}
                 slug={post.slug}
                 description={post.description}
-                publishedDate={post.publishedDate}
+                createdAt={post.createdAt}
               />
             </li>
           ))}

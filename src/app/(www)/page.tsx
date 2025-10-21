@@ -1,18 +1,26 @@
 // Sections
-import { FeaturedPosts } from '@/sections/featured-posts';
+import { AllPosts } from '@/sections/all-posts';
 import { Hero } from '@/sections/hero';
 
 const info = {
   title: 'Bienvenido a mi espacio personal',
-  description:
-    'Qué se yo… soy un pibe que a veces piensa demasiado y escribe mientras toma mate cuando el hecatombe mental aprieta. Bienvenido a donde nada está del todo claro, pero algo siempre sale.',
+  description: 'Qué se yo… soy un pibe que mientras toma mate, reflexiona.',
 };
 
-export default function HomePage() {
+interface HomePageProps {
+  searchParams: Promise<{
+    category?: string;
+  }>;
+}
+
+export default async function HomePage({ searchParams }: HomePageProps) {
+  const { category } = await searchParams;
+  const categorySlug = category;
+
   return (
     <div className="space-y-6">
       <Hero title={info.title} description={info.description} />
-      <FeaturedPosts />
+      <AllPosts categorySlug={categorySlug} />
     </div>
   );
 }

@@ -7,7 +7,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { Categories } from './categories';
 
 // Types
-import { type Category } from '@/payload-types';
+import type { Category } from '@/payload-types';
 
 interface CategoryFilterProps {
   categories: Category[];
@@ -31,9 +31,9 @@ export function CategoryFilter({ categories }: CategoryFilterProps) {
   };
 
   return (
-    <div className="mb-8">
-      <h3 className="text-sm font-semibold mb-4">Filtrar por categoría</h3>
-      <div className="flex flex-wrap gap-2">
+    <div className="mb-12">
+      <h3 className="text-sm font-light tracking-wide text-gray-500 mb-6">Filtrar por categoría</h3>
+      <div className="flex flex-wrap gap-6">
         <Categories
           categories={categories}
           currentCategory={currentCategory}

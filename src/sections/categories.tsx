@@ -1,5 +1,7 @@
+'use client';
+
 // Types
-import { type Category } from '@/payload-types';
+import type { Category } from '@/payload-types';
 
 interface CategoriesProps {
   categories: Category[];
@@ -12,12 +14,8 @@ export function Categories({ categories, currentCategory, onCategoryChange }: Ca
     <>
       <button
         onClick={() => onCategoryChange(null)}
-        className={`px-4 py-1 rounded-full text-xs font-medium transition-colors
-          ${
-            !currentCategory
-              ? 'bg-primary text-white'
-              : 'bg-muted text-muted-foreground hover:bg-accent'
-          }
+        className={`px-3 py-1 text-sm font-light tracking-wide transition-colors
+          ${!currentCategory ? 'text-black border-b border-black' : 'text-gray-400 hover:text-gray-600'}
         `}
       >
         Todas
@@ -26,11 +24,11 @@ export function Categories({ categories, currentCategory, onCategoryChange }: Ca
         <button
           key={category.id}
           onClick={() => onCategoryChange(category.slug)}
-          className={`px-4 py-1 rounded-full text-xs font-medium transition-colors
+          className={`px-3 py-1 text-sm font-light tracking-wide transition-colors
             ${
               currentCategory === category.slug
-                ? 'bg-primary text-white'
-                : 'bg-muted text-muted-foreground hover:bg-accent'
+                ? 'text-black border-b border-black'
+                : 'text-gray-400 hover:text-gray-600'
             }
           `}
         >

@@ -5,7 +5,7 @@ import { Calendar, PenBox, User2 } from 'lucide-react';
 import { formatDate } from '@/lib/utils';
 
 // Types
-import { type Post } from '@/payload-types';
+import type { Post } from '@/payload-types';
 
 interface PostHeaderProps extends Pick<Post, 'title' | 'description' | 'createdAt' | 'updatedAt'> {}
 
@@ -26,18 +26,19 @@ export function PostHeader({ description, title, createdAt, updatedAt }: PostHea
   ];
 
   return (
-    <div className="prose-container space-y-3 border-b border-border pb-5">
-      <div className="space-y-3">
-        <h1 className="text-xl font-bold text-primary">{title}</h1>
-        {description ? <p className="text-muted-foreground ">{description}</p> : null}
+    <div className="prose-container space-y-4 border-border border-b pb-4">
+      <div className="space-y-4">
+        <h1 className="text-3xl font-light tracking-tight text-neutral-900">{title}</h1>
+        {description ? (
+          <p className="text-neutral-500 font-light text-pretty leading-relaxed">{description}</p>
+        ) : null}
       </div>
-      <div className="flex flex-col flex-wrap gap-2">
-        {info.map((item, idx) => (
-          <div key={idx} className="flex items-center gap-x-2">
-            {item.icon}
-            <span className="text-muted-foreground text-xs">{item.text}</span>
-          </div>
-        ))}
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-light">
+        <span>Ignacio Figueroa</span>
+        <span>·</span>
+        <span>{formatDate(createdAt)}</span>
+        <span>·</span>
+        <span>Actualizado {formatDate(updatedAt)}</span>
       </div>
     </div>
   );

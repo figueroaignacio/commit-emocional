@@ -1,5 +1,4 @@
 // Components
-import { ArrowRightIcon } from 'lucide-react';
 import Link from 'next/link';
 
 // Types
@@ -9,28 +8,16 @@ import { type Post } from '@/payload-types';
 import { formatDate } from '@/lib/utils';
 
 interface PostCardProps
-  extends Pick<Post, 'slug' | 'featured' | 'title' | 'description' | 'publishedDate'> {}
+  extends Pick<Post, 'slug' | 'featured' | 'title' | 'description' | 'createdAt'> {}
 
-export function PostCard({ slug, title, description, publishedDate }: PostCardProps) {
+export function PostCard({ slug, title, description, createdAt }: PostCardProps) {
   return (
-    <div className="border-t-8 border-t-primary border border-border rounded-md p-4 h-full">
-      <div className="flex items-center justify-between mb-3">
-        <Link href={`/posts/${slug}`}>
-          <h3 className="text-lg font-semibold transition-colors">{title}</h3>
-        </Link>
-        <span className="text-xs text-muted-foreground">{formatDate(publishedDate)}</span>
-      </div>
-      <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-2">
-        {description}
-      </p>
-      <div className="flex w-full justify-end">
-        <Link
-          href={`/posts/${slug}`}
-          className="inline-flex items-center gap-x-2 text-sm text-muted-foreground hover:text-primary transition-colors font-medium mb-5"
-        >
-          Leer más <ArrowRightIcon size={14} />
-        </Link>
-      </div>
+    <div className="space-y-3">
+      <span>{formatDate(createdAt)}</span>
+      <Link href={`/posts/${slug}`}>
+        <h2 className="text-2xl font-light mt-2 mb-3  transition-colors">{title}</h2>
+      </Link>
+      <p className="text-sm text-muted-foreground leading-relaxed font-light">{description}</p>
     </div>
   );
 }
