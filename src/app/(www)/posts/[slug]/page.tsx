@@ -82,7 +82,6 @@ export default async function PostPage({ params }: PostPageProps) {
         description={post.description ?? ''}
         title={post.title}
         createdAt={post.createdAt}
-        updatedAt={post.updatedAt}
       />
       <AnimateIn variant="fadeUp" delay={0.2}>
         <RichText data={post.content} className="prose prose-container" />

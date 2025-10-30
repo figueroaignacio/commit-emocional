@@ -9,9 +9,9 @@ import { formatDate } from '@/lib/utils';
 // Types
 import type { Post } from '@/payload-types';
 
-interface PostHeaderProps extends Pick<Post, 'title' | 'description' | 'createdAt' | 'updatedAt'> {}
+interface PostHeaderProps extends Pick<Post, 'title' | 'description' | 'createdAt'> {}
 
-export function PostHeader({ description, title, createdAt, updatedAt }: PostHeaderProps) {
+export function PostHeader({ description, title, createdAt }: PostHeaderProps) {
   return (
     <AnimateIn variant="fadeLeft">
       <div className="prose-container space-y-4 border-border border-b pb-4">
