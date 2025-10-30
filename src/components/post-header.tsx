@@ -25,13 +25,7 @@ export function PostHeader({ description, title, createdAt, updatedAt }: PostHea
             <p className="text-neutral-500 font-light text-pretty leading-relaxed">{description}</p>
           ) : null}
         </div>
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-light">
-          <span>Ignacio Figueroa</span>
-          <span>·</span>
-          <span>{formatDate(createdAt)}</span>
-          <span>·</span>
-          <span>Actualizado {formatDate(updatedAt)}</span>
-        </div>
+        <span className="text-xs font-light">Escrito por Nacho el {formatDate(createdAt)}</span>
       </div>
     </AnimateIn>
   );
