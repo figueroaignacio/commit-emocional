@@ -1,19 +1,22 @@
 @import 'tailwindcss';
 
 :root {
-  --background: hsl(0, 0%, 100%);
-  --foreground: hsl(222, 47%, 11%);
-  --card: hsl(240, 17%, 98%);
-  --card-foreground: hsl(222, 47%, 11%);
-  --primary: hsl(217, 91%, 60%);
-  --primary-foreground: hsl(210, 40%, 98%);
-  --secondary: hsl(214, 95%, 93%);
-  --secondary-foreground: hsl(226, 71%, 40%);
-  --muted: hsl(210, 40%, 96%);
-  --muted-foreground: hsl(215, 16%, 47%);
-  --accent: hsl(240, 17%, 98%);
-  --accent-foreground: hsl(222, 47%, 11%);
-  --border: hsl(214, 25%, 84%);
+  --background: oklch(99.405% 0.00011 271.152);
+  --foreground: oklch(0% 0 0);
+  --card: oklch(99.405% 0.00011 271.152);
+  --card-foreground: oklch(0% 0 0);
+  --popover: oklch(99.107% 0.00011 271.152);
+  --popover-foreground: oklch(0% 0 0);
+  --primary: oklch(53.934% 0.2714 286.753);
+  --primary-foreground: oklch(100% 0.00011 271.152);
+  --secondary: oklch(95.4% 0.00637 255.746);
+  --secondary-foreground: oklch(13.441% 0.00002 271.152);
+  --muted: oklch(97.015% 0.00011 271.152);
+  --muted-foreground: oklch(43.861% 0.00005 271.152);
+  --accent: oklch(93.929% 0.02887 266.393);
+  --accent-foreground: oklch(54.456% 0.19041 259.501);
+  --border: oklch(88.09% 0.00941 258.48);
+  --radius: 0.625rem;
 }
 
 @theme inline {
@@ -25,6 +28,7 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-border: var(--border);
+  --color-secondary: var(--secondary);
 }
 
 body {
@@ -37,7 +41,11 @@ body {
   }
 
   .prose h2 {
-    @apply text-lg  font-thin border-b border-border my-6 pb-3;
+    @apply text-lg font-thin border-b border-border my-6 pb-3;
+  }
+
+  .prose h3 {
+    @apply font-thin my-6;
   }
 
   .prose blockquote {

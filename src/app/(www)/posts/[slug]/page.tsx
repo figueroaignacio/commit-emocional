@@ -2,6 +2,7 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
 
 // Components
+import { AnimateIn } from '@/components/animate-in';
 import { PostHeader } from '@/components/post-header';
 import { RichText } from '@payloadcms/richtext-lexical/react';
 
@@ -83,7 +84,9 @@ export default async function PostPage({ params }: PostPageProps) {
         createdAt={post.createdAt}
         updatedAt={post.updatedAt}
       />
-      <RichText data={post.content} className="prose prose-container" />
+      <AnimateIn variant="fadeUp" delay={0.2}>
+        <RichText data={post.content} className="prose prose-container" />
+      </AnimateIn>
     </article>
   );
 }

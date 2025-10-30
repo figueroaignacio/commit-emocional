@@ -2,9 +2,10 @@
 
 // Hooks
 import { useRouter, useSearchParams } from 'next/navigation';
+import { useTransition } from 'react';
 
 // Components
-import { AnimateIn } from '@/components/animate-in';
+import { Loader } from '@/components/loader';
 import { Categories } from './categories';
 
 // Types
@@ -18,6 +19,7 @@ export function CategoryFilter({ categories }: CategoryFilterProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const currentCategory = searchParams.get('category');
+  const [isPending, startTransition] = useTransition();
 
   const handleCategoryChange = (categorySlug: string | null) => {
     const params = new URLSearchParams(searchParams);
@@ -28,16 +30,13 @@ export function CategoryFilter({ categories }: CategoryFilterProps) {
       params.delete('category');
     }
 
-    router.push(`?${params.toString()}`);
+    startTransition(() => {
+      router.push(`?${params.toString()}`);
+    });
   };
 
   return (
     <div className="mb-12">
-      <AnimateIn variant="scale">
-        <h3 className="text-sm font-light tracking-wide text-gray-500 mb-6">
-          Filtrar por categoría
-        </h3>
-      </AnimateIn>
       <div className="flex flex-wrap gap-6">
         <Categories
           categories={categories}
@@ -45,6 +44,12 @@ export function CategoryFilter({ categories }: CategoryFilterProps) {
           onCategoryChange={handleCategoryChange}
         />
       </div>
+
+      {isPending && (
+        <div className="mt-8">
+          <Loader />
+        </div>
+      )}
     </div>
   );
 }
