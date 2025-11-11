@@ -51,4 +51,25 @@ body {
   .prose blockquote {
     @apply mb-3 border-l-4 border-primary rounded-md pl-4 py-2 text-sm;
   }
+
+  .prose ul,
+  .prose ol {
+    @apply ml-6 mb-6 text-foreground/70 leading-relaxed font-light;
+  }
+
+  .prose ul {
+    @apply list-disc;
+  }
+
+  .prose ol {
+    @apply list-decimal;
+  }
+
+  .prose li {
+    @apply mb-2 pl-1;
+  }
+
+  .prose li::marker {
+    @apply text-primary/80;
+  }
 }
