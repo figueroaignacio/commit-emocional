@@ -1,5 +1,5 @@
 // Components
-import { Loader } from '@/components/loader';
+import { PostListLoader } from '@/components/post-card-loader';
 import { AllPosts } from '@/sections/all-posts';
 import { Hero } from '@/sections/hero';
 import { Suspense } from 'react';
@@ -22,7 +22,7 @@ export default async function PostsPage({ searchParams }: PostPageProps) {
   return (
     <section>
       <Hero title={info.title} description={info.description} />
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<PostListLoader />}>
         <AllPosts categorySlug={categorySlug} />
       </Suspense>
     </section>

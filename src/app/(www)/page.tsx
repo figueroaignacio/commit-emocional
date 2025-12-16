@@ -1,5 +1,5 @@
-// Sections
-import { Loader } from '@/components/loader';
+// Components
+import { PostListLoader } from '@/components/post-card-loader';
 import { Hero } from '@/sections/hero';
 import { RecentPosts } from '@/sections/recent-post';
 import { Suspense } from 'react';
@@ -13,7 +13,7 @@ export default async function HomePage() {
   return (
     <div className="space-y-6">
       <Hero title={info.title} description={info.description} />
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<PostListLoader />}>
         <RecentPosts />
       </Suspense>
     </div>
