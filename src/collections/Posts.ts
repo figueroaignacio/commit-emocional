@@ -1,5 +1,6 @@
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import type { CollectionConfig } from 'payload';
+import slugify from 'slugify';
 
 export const Posts: CollectionConfig = {
   slug: 'posts',
@@ -12,6 +13,19 @@ export const Posts: CollectionConfig = {
     create: () => true,
     update: () => true,
     delete: () => true,
+  },
+  hooks: {
+    beforeValidate: [
+      ({ data }) => {
+        if (data?.title && !data?.slug) {
+          data.slug = slugify(data.title, {
+            lower: true,
+            strict: true,
+          });
+        }
+        return data;
+      },
+    ],
   },
   fields: [
     {
@@ -30,20 +44,6 @@ export const Posts: CollectionConfig = {
       admin: {
         position: 'sidebar',
         description: 'URL amigable para el post',
-      },
-      hooks: {
-        beforeValidate: [
-          (args) => {
-            const { value, operation, data } = args;
-            if ((operation === 'create' || operation === 'update') && data?.title && !value) {
-              return data.title
-                .toLowerCase()
-                .replace(/ /g, '-')
-                .replace(/[^\w-]+/g, '');
-            }
-            return value;
-          },
-        ],
       },
     },
     {
