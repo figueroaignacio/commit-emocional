@@ -37,11 +37,11 @@ body {
 
 @layer {
   .prose p {
-    @apply text-foreground/70 text-pretty leading-relaxed mb-6 font-light;
+    @apply text-foreground/70 text-pretty leading-relaxed mb-6 font-light text-lg;
   }
 
   .prose h2 {
-    @apply text-lg font-thin border-b border-border my-6 pb-3;
+    @apply text-lg font-semibold border-b border-border my-6 pb-3;
   }
 
   .prose h3 {

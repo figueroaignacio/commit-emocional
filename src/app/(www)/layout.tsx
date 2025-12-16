@@ -5,6 +5,7 @@ import { fontSans } from '@/lib/font';
 
 // Components
 import { Footer } from '@/components/footer';
+import { Header } from '@/components/header';
 
 // Config
 import { siteConfig } from '@/lib/config';
@@ -49,8 +50,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="es">
       <body className={fontSans.className}>
-        <main>{children}</main>
-        <Footer />
+        <div className="grid grid-rows-[auto_1fr_auto] min-h-dvh">
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
