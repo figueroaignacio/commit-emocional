@@ -1,19 +1,10 @@
 import React from 'react';
 
-// Font
 import { fontSans } from '@/lib/font';
-
-// Components
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
-
-// Config
 import { siteConfig } from '@/lib/config';
-
-// Styles
 import '@/css/globals.css';
-
-// Types
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
