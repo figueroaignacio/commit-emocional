@@ -16,7 +16,7 @@ export function Categories({ categories, currentCategory, onCategoryChange }: Ca
         <button
           onClick={() => onCategoryChange(null)}
           className={`px-3 py-1 text-sm font-light tracking-wide transition-colors
-          ${!currentCategory ? 'text-black border-b border-black' : 'text-gray-400 hover:text-gray-600'}
+          ${!currentCategory ? 'text-white border-b border-black' : 'text-gray-400 hover:text-gray-600'}
           `}
         >
           Todas
