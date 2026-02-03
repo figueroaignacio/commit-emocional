@@ -34,7 +34,7 @@ export function Categories({ categories, currentCategory, onCategoryChange }: Ca
               className={`px-3 py-1 text-sm font-light tracking-wide transition-colors
             ${
               currentCategory === category.slug
-                ? 'text-black border-b border-black'
+                ? 'text-white border-b border-black'
                 : 'text-gray-400 hover:text-gray-600'
             }
           `}
