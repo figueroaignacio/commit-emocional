@@ -1,4 +1,3 @@
-// Components
 import { PostListLoader } from '@/components/post-card-loader';
 import { AllPosts } from '@/sections/all-posts';
 import { Hero } from '@/sections/hero';
@@ -11,8 +10,8 @@ interface PostPageProps {
 }
 
 const info = {
-  title: 'De todo un poco',
-  description: 'Literalmente, de todo un poco.',
+  title: 'Un poco de todo',
+  description: 'Ideas sueltas, temas variados y pensamientos que no entran en una sola categoría.'
 };
 
 export default async function PostsPage({ searchParams }: PostPageProps) {
