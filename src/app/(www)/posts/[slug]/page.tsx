@@ -1,15 +1,10 @@
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
 
-// Components
 import { AnimateIn } from '@/components/animate-in';
 import { PostHeader } from '@/components/post-header';
 import { RichText } from '@payloadcms/richtext-lexical/react';
-
-// Utils
 import { getPostBySlug, getPosts } from '@/lib/services';
-
-// Types
 import type { Post } from '@/payload-types';
 import type { Metadata } from 'next';
 
