@@ -16,9 +16,9 @@ export function PostHeader({ description, title, createdAt }: PostHeaderProps) {
       <div className="prose-container space-y-4 border-border border-b pb-4">
         <BackButton />
         <div className="space-y-4">
-          <h1 className="text-3xl font-semibold tracking-tight text-neutral-900">{title}</h1>
+          <h1 className="text-3xl font-semibold tracking-tight text-foreground">{title}</h1>
           {description ? (
-            <p className="text-neutral-500 font-light text-pretty leading-relaxed">{description}</p>
+            <p className="text-muted-foreground font-light text-pretty leading-relaxed">{description}</p>
           ) : null}
         </div>
         <span className="font-light">Escrito por Nacho el {formatDate(createdAt)}</span>
