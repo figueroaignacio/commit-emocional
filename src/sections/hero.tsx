@@ -1,4 +1,3 @@
-// Components
 import { AnimateIn } from '@/components/animate-in';
 
 interface HeroProps {

@@ -1,14 +1,11 @@
-// Components
+import { formatDate } from '@/lib/utils';
+import { type Post } from '@/payload-types';
 import Link from 'next/link';
 
-// Types
-import { type Post } from '@/payload-types';
-
-// Utils
-import { formatDate } from '@/lib/utils';
-
-interface PostCardProps
-  extends Pick<Post, 'slug' | 'featured' | 'title' | 'description' | 'createdAt'> {}
+interface PostCardProps extends Pick<
+  Post,
+  'slug' | 'featured' | 'title' | 'description' | 'createdAt'
+> {}
 
 export function PostCard({ slug, title, description, createdAt }: PostCardProps) {
   return (

@@ -1,10 +1,7 @@
 'use client';
 
-// Hooks
-import { usePathname } from 'next/navigation';
-
-// Components
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Logo } from './logo';
 
 const navLinks = [

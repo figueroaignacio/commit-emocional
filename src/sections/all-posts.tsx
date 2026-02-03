@@ -1,13 +1,8 @@
-// Components
 import { AnimateIn } from '@/components/animate-in';
 import { PostCard } from '@/components/post-card';
-import { CategoryFilter } from './category-filter';
-
-// Utils
 import { getCategories, getPosts } from '@/lib/services';
-
-// Types
 import type { Category, Post } from '@/payload-types';
+import { CategoryFilter } from './category-filter';
 
 interface AllPostsProps {
   categorySlug?: string;

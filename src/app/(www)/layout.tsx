@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { fontSans } from '@/lib/font';
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 import { siteConfig } from '@/lib/config';
-import '@/css/globals.css';
+import { fontSans } from '@/lib/font';
 import type { Metadata } from 'next';
+import '../globals';
 
 export const metadata: Metadata = {
   title: `${siteConfig.name} | Reflexiones que inspiran y transforman`,

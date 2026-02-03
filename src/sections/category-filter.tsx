@@ -1,15 +1,10 @@
 'use client';
 
-// Hooks
+import { Loader } from '@/components/loader';
+import type { Category } from '@/payload-types';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useTransition } from 'react';
-
-// Components
-import { Loader } from '@/components/loader';
 import { Categories } from './categories';
-
-// Types
-import type { Category } from '@/payload-types';
 
 interface CategoryFilterProps {
   categories: Category[];

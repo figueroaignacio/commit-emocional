@@ -1,9 +1,6 @@
 'use client';
 
-// Components
 import { AnimateIn } from '@/components/animate-in';
-
-// Types
 import type { Category } from '@/payload-types';
 
 interface CategoriesProps {
