@@ -19,9 +19,7 @@ export function PostCard({ slug, title, description, createdAt }: PostCardProps)
           {description}
         </p>
         <div className="w-full flex justify-end">
-          <Link href={`/posts/${slug}`} className="underline font-medium px-4">
-            Leer más
-          </Link>
+          <span className="underline font-medium px-4">Leer más</span>
         </div>
       </div>
     </Link>
