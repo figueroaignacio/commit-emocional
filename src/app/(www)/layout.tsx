@@ -5,7 +5,7 @@ import { Header } from '@/components/header';
 import { siteConfig } from '@/lib/config';
 import { fontSans } from '@/lib/font';
 import type { Metadata } from 'next';
-import '../globals';
+import '../globals.css';
 
 export const metadata: Metadata = {
   title: `${siteConfig.name} | Reflexiones que inspiran y transforman`,
