@@ -7,8 +7,8 @@ export async function RecentPosts() {
 
   return (
     <section className="min-h-[20lvh]">
-      <h2 className="my-4">Publicaciones recientes</h2>
-      <ul className="space-y-5">
+      <h2 className="my-12">Publicaciones recientes</h2>
+      <ul className="space-y-12">
         {recentPosts.map((post) => (
           <li key={post.id}>
             <PostCard

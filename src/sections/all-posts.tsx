@@ -27,9 +27,8 @@ export async function AllPosts({ categorySlug }: AllPostsProps) {
           </p>
         </div>
       ) : (
-        <ul className="space-y-8">
-          {posts.map((post, index) => {
-            const delay = 0.1 + index * 0.1;
+        <ul className="space-y-12">
+          {posts.map((post) => {
             return (
               <div key={post.id} className="space-y-5">
                 <PostCard
