@@ -1,5 +1,5 @@
-export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 import { PostHeader } from '@/components/post-header';
 import { getPostBySlug, getPosts } from '@/lib/services';
@@ -11,6 +11,16 @@ interface PostPageProps {
   params: Promise<{
     slug: string;
   }>;
+}
+
+export async function generateStaticParams() {
+  try {
+    const posts: Post[] = await getPosts();
+    return posts.map((post) => ({ slug: post.slug }));
+  } catch (error) {
+    console.warn('Could not fetch posts during build:', error);
+    return [];
+  }
 }
 
 export default async function PostPage({ params }: PostPageProps) {
@@ -72,12 +82,4 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
       creator: '@ignaciofigueroa',
     },
   };
-}
-
-export async function generateStaticParams() {
-  const posts: Post[] = await getPosts();
-
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
 }
