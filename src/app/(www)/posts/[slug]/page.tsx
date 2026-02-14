@@ -1,7 +1,6 @@
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
 
-import { AnimateIn } from '@/components/animate-in';
 import { PostHeader } from '@/components/post-header';
 import { getPostBySlug, getPosts } from '@/lib/services';
 import type { Post } from '@/payload-types';
@@ -29,9 +28,7 @@ export default async function PostPage({ params }: PostPageProps) {
         title={post.title}
         createdAt={post.createdAt}
       />
-      <AnimateIn variant="fadeUp" delay={0.2}>
-        <RichText data={post.content} className="prose prose-container" />
-      </AnimateIn>
+      <RichText data={post.content} className="prose prose-container" />
     </article>
   );
 }

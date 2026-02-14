@@ -1,6 +1,3 @@
-'use client';
-
-import { AnimateIn } from '@/components/animate-in';
 import type { Category } from '@/payload-types';
 
 interface CategoriesProps {
@@ -12,33 +9,29 @@ interface CategoriesProps {
 export function Categories({ categories, currentCategory, onCategoryChange }: CategoriesProps) {
   return (
     <>
-      <AnimateIn variant="fadeLeft">
-        <button
-          onClick={() => onCategoryChange(null)}
-          className={`px-3 py-1 text-sm font-light tracking-wide transition-colors
+      <button
+        onClick={() => onCategoryChange(null)}
+        className={`px-3 py-1 text-sm font-light tracking-wide transition-colors
           ${!currentCategory ? 'text-white border-b border-black' : 'text-gray-400 hover:text-gray-600'}
           `}
-        >
-          Todas
-        </button>
-      </AnimateIn>
-      {categories.map((category, index) => {
-        const delay = 0.1 + index * 0.1;
+      >
+        Todas
+      </button>
+      {categories.map((category) => {
         return (
-          <AnimateIn variant="fadeLeft" delay={delay} key={category.id}>
-            <button
-              onClick={() => onCategoryChange(category.slug)}
-              className={`px-3 py-1 text-sm font-light tracking-wide transition-colors
+          <button
+            key={category.id}
+            onClick={() => onCategoryChange(category.slug)}
+            className={`px-3 py-1 text-sm font-light tracking-wide transition-colors
             ${
               currentCategory === category.slug
                 ? 'text-white border-b border-black'
                 : 'text-gray-400 hover:text-gray-600'
             }
           `}
-            >
-              {category.name}
-            </button>
-          </AnimateIn>
+          >
+            {category.name}
+          </button>
         );
       })}
     </>

@@ -1,4 +1,3 @@
-import { AnimateIn } from '@/components/animate-in';
 import { PostCard } from '@/components/post-card';
 import { getCategories, getPosts } from '@/lib/services';
 import type { Category, Post } from '@/payload-types';
@@ -33,14 +32,12 @@ export async function AllPosts({ categorySlug }: AllPostsProps) {
             const delay = 0.1 + index * 0.1;
             return (
               <div key={post.id} className="space-y-5">
-                <AnimateIn variant="fadeLeft" delay={delay}>
-                  <PostCard
-                    createdAt={post.createdAt}
-                    title={post.title}
-                    slug={post.slug}
-                    description={post.description}
-                  />
-                </AnimateIn>
+                <PostCard
+                  createdAt={post.createdAt}
+                  title={post.title}
+                  slug={post.slug}
+                  description={post.description}
+                />
               </div>
             );
           })}
