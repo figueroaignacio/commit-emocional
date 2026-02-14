@@ -6,7 +6,7 @@ export async function RecentPosts() {
   const recentPosts: Post[] = await getRecentPosts();
 
   return (
-    <section className="container min-h-[20lvh]">
+    <section className="min-h-[20lvh]">
       <h2 className="my-4">Publicaciones recientes</h2>
       <ul className="space-y-5">
         {recentPosts.map((post) => (

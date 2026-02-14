@@ -11,7 +11,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className={fontSans.className}>
         <div className="grid grid-rows-[auto_1fr_auto] min-h-dvh">
           <Header />
-          <main>{children}</main>
+          <main className="container">{children}</main>
           <Footer />
         </div>
       </body>

@@ -52,8 +52,14 @@
   --radius-2xl: calc(var(--radius) + 1rem);
 }
 
-body {
-  @apply bg-background text-foreground max-w-xl mx-auto px-4 sm:px-6 lg:px-8;
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.container {
+  @apply max-w-xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
 @layer {

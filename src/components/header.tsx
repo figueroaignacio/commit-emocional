@@ -13,7 +13,7 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="flex items-center justify-between py-3 bg-background z-500 sticky top-0">
+    <header className="flex items-center justify-between py-3 bg-background z-500 sticky top-0 container">
       <nav className="space-x-3">
         {navLinks.map((link) => {
           const isActive = pathname === link.href;
