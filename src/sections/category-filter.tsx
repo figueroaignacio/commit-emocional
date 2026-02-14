@@ -1,6 +1,6 @@
 'use client';
 
-import { Loader } from '@/components/loader';
+import { PostListLoader } from '@/components/post-card-loader';
 import type { Category } from '@/payload-types';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useTransition } from 'react';
@@ -42,7 +42,7 @@ export function CategoryFilter({ categories }: CategoryFilterProps) {
 
       {isPending && (
         <div className="mt-8">
-          <Loader />
+          <PostListLoader />
         </div>
       )}
     </div>
