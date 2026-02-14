@@ -64,7 +64,7 @@
 
 @layer {
   .prose p {
-    @apply text-foreground/70 text-pretty leading-relaxed mb-6 font-light text-lg;
+    @apply text-foreground/70 text-pretty leading-relaxed mb-6 font-light;
   }
 
   .prose h2 {
