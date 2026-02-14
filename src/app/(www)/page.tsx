@@ -5,9 +5,9 @@ import { Suspense } from 'react';
 
 const info = {
   title: 'Bienvenido a mi rincón de internet',
-  description: 'Soy Nacho. Acá escribo ideas, dudas y conclusiones que parecían buenas a las 2 a.m dentro de mi cabeza. Algunas incluso lo son. Y en otras probablemente cambie de opinión en un futuro'
+  description:
+    'Soy Nacho. Acá escribo ideas, dudas y conclusiones que parecían buenas a las 2 a.m dentro de mi cabeza. Algunas incluso lo son. Y en otras probablemente cambie de opinión en un futuro',
 };
-
 
 export default async function HomePage() {
   return (
