@@ -1,11 +1,23 @@
-import React from 'react';
-
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 import { siteConfig } from '@/lib/config';
 import { fontSans } from '@/lib/font';
 import type { Metadata } from 'next';
 import '../globals.css';
+
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="es">
+      <body className={fontSans.className}>
+        <div className="grid grid-rows-[auto_1fr_auto] min-h-dvh">
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </div>
+      </body>
+    </html>
+  );
+}
 
 export const metadata: Metadata = {
   title: `${siteConfig.name} | Reflexiones que inspiran y transforman`,
@@ -36,17 +48,3 @@ export const metadata: Metadata = {
     images: [siteConfig.og.image],
   },
 };
-
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="es">
-      <body className={fontSans.className}>
-        <div className="grid grid-rows-[auto_1fr_auto] min-h-dvh">
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </div>
-      </body>
-    </html>
-  );
-}

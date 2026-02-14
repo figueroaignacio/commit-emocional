@@ -3,15 +3,37 @@ export const revalidate = 3600;
 
 import { AnimateIn } from '@/components/animate-in';
 import { PostHeader } from '@/components/post-header';
-import { RichText } from '@payloadcms/richtext-lexical/react';
 import { getPostBySlug, getPosts } from '@/lib/services';
 import type { Post } from '@/payload-types';
+import { RichText } from '@payloadcms/richtext-lexical/react';
 import type { Metadata } from 'next';
 
 interface PostPageProps {
   params: Promise<{
     slug: string;
   }>;
+}
+
+export default async function PostPage({ params }: PostPageProps) {
+  const { slug } = await params;
+  const post: Post = await getPostBySlug(slug);
+
+  if (!post) {
+    return <p className="text-red-600/30">Error</p>;
+  }
+
+  return (
+    <article className="space-y-5 my-5">
+      <PostHeader
+        description={post.description ?? ''}
+        title={post.title}
+        createdAt={post.createdAt}
+      />
+      <AnimateIn variant="fadeUp" delay={0.2}>
+        <RichText data={post.content} className="prose prose-container" />
+      </AnimateIn>
+    </article>
+  );
 }
 
 export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
@@ -61,26 +83,4 @@ export async function generateStaticParams() {
   return posts.map((post) => ({
     slug: post.slug,
   }));
-}
-
-export default async function PostPage({ params }: PostPageProps) {
-  const { slug } = await params;
-  const post: Post = await getPostBySlug(slug);
-
-  if (!post) {
-    return <p className="text-red-600/30">Error</p>;
-  }
-
-  return (
-    <article className="space-y-5 my-5">
-      <PostHeader
-        description={post.description ?? ''}
-        title={post.title}
-        createdAt={post.createdAt}
-      />
-      <AnimateIn variant="fadeUp" delay={0.2}>
-        <RichText data={post.content} className="prose prose-container" />
-      </AnimateIn>
-    </article>
-  );
 }
