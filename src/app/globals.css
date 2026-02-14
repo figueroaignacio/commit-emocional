@@ -1,27 +1,27 @@
 @import 'tailwindcss';
 
 :root {
-  --background: #000000;
-  --foreground: #e3e3e3;
-  --card: #1e1f20;
-  --card-foreground: #e3e3e3;
-  --popover: #1e1f20;
-  --popover-foreground: #e3e3e3;
-  --primary: #8ab4f8;
-  --primary-foreground: #000000;
-  --secondary: #2d2f31;
-  --secondary-foreground: #e3e3e3;
-  --muted: #111111;
-  --muted-foreground: #969696;
-  --accent: #2d2f31;
-  --accent-foreground: #8ab4f8;
-  --destructive: oklch(71.061% 0.16614 22.191);
-  --destructive-foreground: #ffffff;
-  --border: #1b1b1c;
-  --input: #111111;
-  --ring: #8ab4f8;
-  --grid-color: rgba(255, 255, 255, 0.02);
-  --shadow-lg: 0 10px 30px -10px rgba(0, 0, 0, 0.9);
+  --background: #09090b;
+  --foreground: #fafafa;
+  --card: #18181b;
+  --card-foreground: #fafafa;
+  --popover: #18181b;
+  --popover-foreground: #fafafa;
+  --primary: #fafafa;
+  --primary-foreground: #18181b;
+  --secondary: #27272a;
+  --secondary-foreground: #fafafa;
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+  --accent: #27272a;
+  --accent-foreground: #fafafa;
+  --destructive: #7f1d1d;
+  --destructive-foreground: #fafafa;
+  --border: #27272a;
+  --input: #27272a;
+  --ring: #d4d4d8;
+  --grid-color: rgba(255, 255, 255, 0.05);
+  --shadow-lg: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
   --radius: 1rem;
 }
 
