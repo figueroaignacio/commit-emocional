@@ -51,13 +51,9 @@ export function CommentsList({
 
   if (comments.length === 0) {
     return (
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="text-center py-12 px-6 rounded-3xl border border-dashed border-border bg-muted/10"
-      >
-        <p className="text-muted-foreground text-sm italic">
-          No hay comentarios aún. ¡Sé el primero en comentar!
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-12">
+        <p className="text-muted-foreground text-sm font-light">
+          No hay comentarios aún. Sea el primero en iniciar la conversación.
         </p>
       </motion.div>
     );

@@ -1,5 +1,3 @@
-import { LogOut, MessageSquare } from 'lucide-react';
-
 interface User {
   id: string;
   name: string;
@@ -21,22 +19,17 @@ export function CommentsHeader({
   onLogout,
 }: Omit<CommentsHeaderProps, 't'>) {
   return (
-    <div className="flex items-center justify-between mb-8">
-      <div className="flex items-center gap-3">
-        <MessageSquare className="w-5 h-5" />
-        <h2 className="text-xl font-bold tracking-tight text-foreground">
-          Comentarios{' '}
-          <span className="text-muted-foreground font-normal ml-1">({commentsCount})</span>
-        </h2>
-      </div>
+    <div className="flex items-center justify-between mb-8 border-b border-border pb-4">
+      <h2 className="text-lg font-medium text-foreground">
+        Comentarios <span className="text-muted-foreground ml-1">{commentsCount}</span>
+      </h2>
       {session && (
-        <button onClick={onLogout} disabled={isLoggingOut} className="space-x-3">
-          {isLoggingOut ? (
-            <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
-          ) : (
-            <LogOut className="w-4 h-4" />
-          )}
-          <span className="hidden sm:inline">Cerrar sesión</span>
+        <button
+          onClick={onLogout}
+          disabled={isLoggingOut}
+          className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+        >
+          {isLoggingOut ? 'Cerrando sesión...' : 'Cerrar sesión'}
         </button>
       )}
     </div>
