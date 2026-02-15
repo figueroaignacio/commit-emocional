@@ -1,7 +1,7 @@
 import { auth } from '@/lib/auth';
 import { authClient } from '@/lib/auth-client';
 import { headers } from 'next/headers';
-import { CommentsSection } from './comments-with-auth';
+import { CommentsSection } from './comments-section';
 
 interface CommentsWrapperProps {
   postId: number;
