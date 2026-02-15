@@ -40,14 +40,17 @@ export function LoginModal({
           >
             {!isRedirecting && <GoogleIcon />}
             {isRedirecting ? (
-              <div className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin" />
+              <>
+                <span>Bancá un segundo...</span>
+                <div className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin" />
+              </>
             ) : (
               'Continuar con Google'
             )}
           </button>
           <p className="text-[11px] text-center text-muted-foreground uppercase tracking-tighter">
-            Al continuar, no se guardará ningún dato personal. Solo se utilizará tu nombre y foto de
-            perfil para mostrar tus comentarios.
+            Al continuar, no se guardará ningún dato personal. Solo se utilizará tu nombre para
+            mostrar tus comentarios.
           </p>
         </div>
       </DialogContent>
