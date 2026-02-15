@@ -25,7 +25,7 @@ export function DeleteConfirmModal({
 }: Omit<DeleteConfirmModalProps, 't'>) {
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent className="smorder-destructive/20 border-border border shadow-destructive/10">
+      <DialogContent className="border-border border ">
         <DialogHeader>
           <div className="flex items-center gap-3 mb-2">
             <div className="p-2 rounded-full bg-destructive/10 text-destructive">
@@ -38,10 +38,14 @@ export function DeleteConfirmModal({
           </DialogDescription>
         </DialogHeader>
         <DialogFooter className="mt-4 gap-2 sm:gap-0">
-          <button onClick={() => onOpenChange(false)} disabled={isDeleting}>
+          <button
+            onClick={() => onOpenChange(false)}
+            disabled={isDeleting}
+            className="btn btn-primary"
+          >
             Cancelar
           </button>
-          <button onClick={onConfirm} disabled={isDeleting} className="gap-2">
+          <button onClick={onConfirm} disabled={isDeleting} className="btn btn-destructive gap-2">
             {isDeleting ? <Loader2 className="w-4 h-4 animate-spin" /> : 'Eliminar'}
           </button>
         </DialogFooter>

@@ -30,7 +30,9 @@ export function CommentForm({
           onChange={(e) => onCommentChange(e.target.value)}
           onClick={() => !session && onLoginClick()}
           placeholder={
-            session ? 'Escribe tu respuesta...' : 'Inicia sesión para participar en la discusión'
+            session
+              ? 'Escribe tu respuesta...'
+              : 'Toca para iniciar sesión y participar en la discusión'
           }
           readOnly={!session}
           className="w-full min-h-[100px] p-0 bg-transparent border-0 border-b border-border resize-none focus:outline-none focus:border-foreground transition-colors text-foreground placeholder:text-muted-foreground text-base leading-relaxed"
@@ -39,13 +41,13 @@ export function CommentForm({
           <div className="flex items-center gap-3">
             {session ? (
               <div className="flex items-center gap-2">
-                <img
+                {/* <img
                   src={
                     session.user.image || `https://ui-avatars.com/api/?name=${session.user.name}`
                   }
-                  className="w-5 h-5 rounded-full grayscale opacity-70"
+                  className="w-5 h-5 rounded-full "
                   alt="avatar"
-                />
+                /> */}
                 <span className="text-xs text-muted-foreground">{session.user.name}</span>
               </div>
             ) : (
