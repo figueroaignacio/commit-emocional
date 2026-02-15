@@ -8,13 +8,16 @@ interface CommentsWithAuthProps {
   slug: string;
 }
 
+import { usePathname } from 'next/navigation';
+
 export function CommentsWithAuth({ postId, slug }: CommentsWithAuthProps) {
   const { data: sessionData } = useSession();
+  const pathname = usePathname();
 
   const handleLogin = async () => {
     await signIn.social({
       provider: 'google',
-      callbackURL: `/blog/${slug}`,
+      callbackURL: pathname,
     });
   };
 
