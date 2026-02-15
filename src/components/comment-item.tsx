@@ -50,13 +50,13 @@ export function CommentItem({
       className={`group ${isDeleting ? 'opacity-50' : ''}`}
     >
       <div className="flex items-start gap-3">
-        <div className="shrink-0 mt-1">
+        {/* <div className="shrink-0 mt-1">
           <img
             src={comment.user.image || `https://ui-avatars.com/api/?name=${comment.user.name}`}
             className="w-6 h-6 rounded-full grayscale opacity-70"
             alt={comment.user.name}
           />
-        </div>
+        </div> */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1">
             <span className="text-sm font-medium text-foreground">{comment.user.name}</span>
