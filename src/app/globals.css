@@ -100,3 +100,23 @@
     @apply text-primary/80;
   }
 }
+
+.btn {
+  @apply rounded-full px-4 py-2 text-sm font-medium transition-colors text-center disabled:pointer-events-none disabled:opacity-50;
+}
+
+.btn-primary {
+  @apply bg-primary text-primary-foreground hover:bg-primary/90;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+}
+
+.btn-destructive {
+  @apply bg-destructive text-destructive-foreground hover:bg-destructive/90;
+}
+
+.btn-icon {
+  @apply rounded-full p-2 transition-colors hover:bg-muted;
+}
