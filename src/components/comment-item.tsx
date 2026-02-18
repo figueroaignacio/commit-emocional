@@ -67,7 +67,7 @@ export function CommentItem({
             {comment.content}
           </p>
           {isOwner && (
-            <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="mt-2">
               <button
                 onClick={() => onDelete(comment.id)}
                 disabled={isDeleting}
