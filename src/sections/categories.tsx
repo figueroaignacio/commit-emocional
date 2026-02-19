@@ -1,6 +1,6 @@
 import { cn } from '@/lib/cn';
 import type { Category } from '@/payload-types';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 interface CategoriesProps {
   categories: Category[];
