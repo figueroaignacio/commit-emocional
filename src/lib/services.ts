@@ -27,6 +27,29 @@ export async function getPosts(categorySlug?: string) {
   return data.docs;
 }
 
+export async function getPaginatedPosts({
+  page = 1,
+  limit = 6,
+  categorySlug,
+}: {
+  page?: number;
+  limit?: number;
+  categorySlug?: string;
+}) {
+  let url = `${API_URL}/api/posts?page=${page}&limit=${limit}`;
+
+  if (categorySlug) {
+    url += `&where[category.slug][equals]=${categorySlug}`;
+  }
+
+  const res = await fetch(url, { cache: 'no-store' });
+  if (!res.ok) throw new Error('Error getting posts');
+
+  const data = await res.json();
+
+  return data;
+}
+
 export async function getPostBySlug(slug: string) {
   const res = await fetch(`${API_URL}/api/posts/?where[slug][equals]=${slug}`, {
     cache: 'no-store',
