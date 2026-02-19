@@ -9,6 +9,7 @@ export interface PostComment {
   id: number;
   content: string;
   created_at: string;
+  parent_id?: number | null;
   user: User;
 }
 

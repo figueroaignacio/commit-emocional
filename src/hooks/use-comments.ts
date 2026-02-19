@@ -58,23 +58,25 @@ export function useComments({ postId, session, onLogin }: Omit<UseCommentsProps,
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e?: React.FormEvent, parentId?: number, content?: string) => {
+    if (e) e.preventDefault();
     if (!session) return setShowLoginModal(true);
-    if (newComment.trim().length < 3) return;
+
+    const contentToSend = content || newComment;
+    if (contentToSend.trim().length < 3) return;
 
     setIsSubmitting(true);
     try {
       const response = await fetch('/api/comments', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ content: newComment, postId }),
+        body: JSON.stringify({ content: contentToSend, postId, parentId }),
       });
 
       if (response.ok) {
         const data = await response.json();
         setComments((prev) => [data.comment, ...prev]);
-        setNewComment('');
+        if (!parentId) setNewComment('');
       }
     } catch (error) {
       alert('Ocurrió un error al publicar el comentario');

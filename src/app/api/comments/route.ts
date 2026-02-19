@@ -8,14 +8,19 @@ export async function POST(request: Request) {
     const session = await auth.api.getSession({ headers: await headers() });
     if (!session) return NextResponse.json({ error: 'No autorizado' }, { status: 401 });
 
-    const { content, postId } = await request.json();
+    const { content, postId, parentId } = await request.json();
     const numericPostId = parseInt(postId, 10);
+    const numericParentId = parentId ? parseInt(parentId, 10) : null;
+
+    if (!content || !postId) {
+      return NextResponse.json({ error: 'Faltan datos' }, { status: 400 });
+    }
 
     const result = await pool.query(
-      `INSERT INTO comments (content, user_id, post_id) 
-       VALUES ($1, $2, $3) 
-       RETURNING id, content, created_at`,
-      [content.trim(), session.user.id, numericPostId],
+      `INSERT INTO comments (content, user_id, post_id, parent_id)
+       VALUES ($1, $2, $3, $4)
+       RETURNING id, content, created_at, parent_id`,
+      [content.trim(), session.user.id, numericPostId, numericParentId],
     );
 
     const newComment = (result as any[])[0];

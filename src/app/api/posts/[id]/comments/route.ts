@@ -17,6 +17,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
         c.content, 
         c.created_at, 
         c.user_id, 
+        c.parent_id,
         u.name, 
         u.email, 
         u.image 
@@ -34,6 +35,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
       id: row.id,
       content: row.content,
       created_at: row.created_at,
+      parent_id: row.parent_id,
       user: {
         id: row.user_id,
         name: row.name,

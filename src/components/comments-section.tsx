@@ -53,6 +53,9 @@ export function CommentsSection({ postId, session, onLogin }: CommentsSectionPro
           currentUserId={session?.user.id}
           onDeleteComment={openDeleteModal}
           onEditComment={handleEdit}
+          onReplyComment={async (parentId, content) => {
+            await handleSubmit(undefined, parentId, content);
+          }}
           deletingId={deletingComment}
         />
         <DeleteConfirmModal

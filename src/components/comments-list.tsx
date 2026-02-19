@@ -1,28 +1,17 @@
 'use client';
 
+import { useMemo } from 'react';
+import type { PostComment } from '../types';
 import { CommentItem } from './comment-item';
 
-interface User {
-  id: string;
-  name: string;
-  email: string;
-  image?: string | null;
-}
-
-interface Comment {
-  id: number;
-  content: string;
-  created_at: string;
-  user: User;
-}
-
 interface CommentsListProps {
-  comments: Comment[];
+  comments: PostComment[];
   isLoading: boolean;
 
   currentUserId?: string;
   onDeleteComment: (id: number) => void;
   onEditComment: (id: number, content: string) => Promise<void>;
+  onReplyComment: (parentId: number, content: string) => Promise<void>;
   deletingId: number | null;
 }
 
@@ -32,8 +21,37 @@ export function CommentsList({
   currentUserId,
   onDeleteComment,
   onEditComment,
+  onReplyComment,
   deletingId,
 }: Omit<CommentsListProps, 't' | 'locale'>) {
+  const rootComments = useMemo(() => {
+    const commentMap = new Map<number, PostComment & { replies: PostComment[] }>();
+
+    comments.forEach((comment) => {
+      commentMap.set(comment.id, { ...comment, replies: [] });
+    });
+
+    const roots: (PostComment & { replies: PostComment[] })[] = [];
+
+    comments.forEach((comment) => {
+      const node = commentMap.get(comment.id)!;
+      if (comment.parent_id) {
+        const parent = commentMap.get(comment.parent_id);
+        if (parent) {
+          parent.replies.push(node);
+        } else {
+          roots.push(node);
+        }
+      } else {
+        roots.push(node);
+      }
+    });
+
+    return roots.sort(
+      (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime(),
+    );
+  }, [comments]);
+
   if (isLoading) {
     return (
       <div className="space-y-4">
@@ -61,15 +79,17 @@ export function CommentsList({
   }
 
   return (
-    <div className="space-y-8">
-      {comments.map((comment) => (
+    <div className="space-y-10">
+      {rootComments.map((comment) => (
         <CommentItem
           key={comment.id}
           comment={comment}
           currentUserId={currentUserId}
           onDelete={onDeleteComment}
           onEdit={onEditComment}
+          onReply={onReplyComment}
           isDeleting={deletingId === comment.id}
+          replies={comment.replies}
         />
       ))}
     </div>
