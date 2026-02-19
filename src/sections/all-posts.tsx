@@ -14,7 +14,7 @@ export async function AllPosts({ categorySlug, page = 1 }: AllPostsProps) {
     getPaginatedPosts({ page, limit: 6, categorySlug }),
     getCategories(),
   ]);
-  
+
   const posts = postsData.docs as Post[];
   const totalPages = postsData.totalPages;
 
@@ -42,6 +42,7 @@ export async function AllPosts({ categorySlug, page = 1 }: AllPostsProps) {
                     title={post.title}
                     slug={post.slug}
                     description={post.description}
+                    content={post.content}
                   />
                 </div>
               );

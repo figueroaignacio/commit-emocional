@@ -16,6 +16,7 @@ export async function FeaturedPosts() {
               slug={post.slug}
               description={post.description}
               createdAt={post.createdAt}
+              content={post.content}
             />
           </li>
         ))}

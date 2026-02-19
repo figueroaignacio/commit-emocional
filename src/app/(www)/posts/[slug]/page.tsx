@@ -39,6 +39,7 @@ export default async function PostPage({ params }: PostPageProps) {
         description={post.description ?? ''}
         title={post.title}
         createdAt={post.createdAt}
+        content={post.content}
       />
       <RichText data={post.content} className="prose prose-container" />
       <CommentCTA />
