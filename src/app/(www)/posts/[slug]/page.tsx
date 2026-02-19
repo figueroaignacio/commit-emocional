@@ -1,6 +1,7 @@
 export const revalidate = 3600;
 export const dynamic = 'force-dynamic';
 
+import { CommentCTA } from '@/components/comment-cta';
 import { CommentsWithAuth } from '@/components/comments-with-auth';
 import { PostHeader } from '@/components/post-header';
 import { getPostBySlug, getPosts } from '@/lib/services';
@@ -40,6 +41,7 @@ export default async function PostPage({ params }: PostPageProps) {
         createdAt={post.createdAt}
       />
       <RichText data={post.content} className="prose prose-container" />
+      <CommentCTA />
       <CommentsWithAuth postId={post.id} slug={slug} />
     </article>
   );
