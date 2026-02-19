@@ -4,9 +4,9 @@ import { RecentPosts } from '@/sections/recent-post';
 import { Suspense } from 'react';
 
 const info = {
-  title: 'Bienvenido a mi rincón de internet',
+  title: 'Bienvenido al despelote',
   description:
-    'Soy Nacho. Acá escribo ideas, dudas y conclusiones que parecían buenas a las 2 a.m dentro de mi cabeza. Algunas incluso lo son. Y en otras probablemente cambie de opinión en un futuro',
+    'Soy Nacho. Acá vuelco todo lo que me hace ruido, me inspira o me quita el sueño. Algunas cosas tienen sentido, otras solo sirvieron para ahorrarme terapia. Pasá y servite, la casa invita.',
 };
 
 export default async function HomePage() {

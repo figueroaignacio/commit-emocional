@@ -1,25 +1,25 @@
 export const siteConfig = {
   name: 'Commit Emocional',
   description:
-    'Un espacio donde escribo para darle voz a lo que me pesa, me inspira o me transforma. Si en el camino mis palabras ayudan a alguien más, entonces habrá valido el doble.',
+    'Escribo para sacarme de la cabeza lo que me hace ruido. No tengo la verdad de la milanesa, pero si algo de esto te resuena o te ahorra una crisis existencial, golazo. Filosofía de bolsillo para la vida moderna.',
   url: 'https://commitemocional.com',
   author: 'Ignacio Figueroa',
   creator: 'Ignacio Figueroa',
   locale: 'es_AR',
   keywords: [
     'reflexiones',
-    'emociones',
-    'escritura personal',
-    'crecimiento emocional',
-    'motivación',
-    'autenticidad',
-    'inspiración',
+    'catarsis',
+    'filosofía barata',
+    'crisis existenciales',
+    'vida',
+    'pensamientos',
     'blog personal',
+    'humor',
   ],
   og: {
-    title: 'Commit Emocional | Reflexiones que inspiran y transforman',
+    title: 'Commit Emocional | Intentando entender la vida',
     description:
-      'Textos honestos sobre emociones, inspiración y transformación personal. Un espacio para conectar con lo que sentimos y pensamos.',
+      'Un vertedero de mis pensamientos y emociones. Entrá bajo tu propio riesgo, capaz salís con más preguntas que respuestas.',
     image: '/opengraph-image.png',
   },
 };

@@ -20,7 +20,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 }
 
 export const metadata: Metadata = {
-  title: `${siteConfig.name} | Reflexiones que inspiran y transforman`,
+  title: `${siteConfig.name} | Intentando entender la vida`,
   description: siteConfig.description,
   keywords: siteConfig.keywords,
   authors: [{ name: siteConfig.author }],

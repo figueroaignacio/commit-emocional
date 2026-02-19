@@ -11,8 +11,9 @@ interface PostPageProps {
 }
 
 const info = {
-  title: 'Un poco de todo',
-  description: 'Ideas sueltas, temas variados y pensamientos que no entran en una sola categoría.',
+  title: 'Archivo de pensamientos',
+  description:
+    'Un rejunte de ideas que sobrevivieron al borrador. Acá vas a encontrar de todo un poco, crisis existenciales, revelaciones de medianoche y alguna que otra certeza temporal, reseñas de libros, películas y series. En fin, un poco de todo.',
 };
 
 export default async function PostsPage({ searchParams }: PostPageProps) {
