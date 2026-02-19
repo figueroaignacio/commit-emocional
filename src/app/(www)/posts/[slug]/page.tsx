@@ -4,6 +4,7 @@ export const dynamic = 'force-dynamic';
 import { CommentCTA } from '@/components/comment-cta';
 import { CommentsWithAuth } from '@/components/comments-with-auth';
 import { PostHeader } from '@/components/post-header';
+import { ShareButtons } from '@/components/share-buttons';
 import { getPostBySlug, getPosts } from '@/lib/services';
 import type { Post } from '@/payload-types';
 import { RichText } from '@payloadcms/richtext-lexical/react';
@@ -44,6 +45,7 @@ export default async function PostPage({ params }: PostPageProps) {
       <RichText data={post.content} className="prose prose-container" />
       <CommentCTA />
       <CommentsWithAuth postId={post.id} slug={slug} />
+      <ShareButtons slug={slug} title={post.title} />
     </article>
   );
 }
