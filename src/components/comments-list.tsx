@@ -23,6 +23,7 @@ interface CommentsListProps {
 
   currentUserId?: string;
   onDeleteComment: (id: number) => void;
+  onEditComment: (id: number, content: string) => Promise<void>;
   deletingId: number | null;
 }
 
@@ -31,6 +32,7 @@ export function CommentsList({
   isLoading,
   currentUserId,
   onDeleteComment,
+  onEditComment,
   deletingId,
 }: Omit<CommentsListProps, 't' | 'locale'>) {
   if (isLoading) {
@@ -68,6 +70,7 @@ export function CommentsList({
             comment={comment}
             currentUserId={currentUserId}
             onDelete={onDeleteComment}
+            onEdit={onEditComment}
             isDeleting={deletingId === comment.id}
           />
         ))}

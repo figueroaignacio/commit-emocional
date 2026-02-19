@@ -110,6 +110,28 @@ export function useComments({ postId, session, onLogin }: Omit<UseCommentsProps,
     }
   };
 
+  const handleEdit = async (id: number, newContent: string) => {
+    try {
+      const response = await fetch(`/api/comments/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content: newContent }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setComments((prev) =>
+          prev.map((c) => (c.id === id ? { ...c, content: data.comment.content } : c)),
+        );
+      } else {
+        alert('Ocurrió un error al editar el comentario');
+      }
+    } catch (error) {
+      console.error('Error editing comment:', error);
+      alert('Ocurrió un error al editar el comentario');
+    }
+  };
+
   return {
     comments,
     newComment,
@@ -128,5 +150,6 @@ export function useComments({ postId, session, onLogin }: Omit<UseCommentsProps,
     handleSubmit,
     handleDelete,
     openDeleteModal,
+    handleEdit,
   };
 }

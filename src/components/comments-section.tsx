@@ -27,6 +27,7 @@ export function CommentsSection({ postId, session, onLogin }: CommentsSectionPro
     commentToDelete,
     deletingComment,
     setCommentToDelete,
+    handleEdit,
   } = useComments({ postId, session, onLogin });
 
   return (
@@ -51,6 +52,7 @@ export function CommentsSection({ postId, session, onLogin }: CommentsSectionPro
           isLoading={isLoading}
           currentUserId={session?.user.id}
           onDeleteComment={openDeleteModal}
+          onEditComment={handleEdit}
           deletingId={deletingComment}
         />
         <DeleteConfirmModal

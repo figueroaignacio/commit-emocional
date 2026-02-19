@@ -34,3 +34,55 @@ export async function DELETE(request: Request, { params }: { params: Promise<{ i
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
+
+export async function PATCH(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  try {
+    const session = await auth.api.getSession({
+      headers: await headers(),
+    });
+
+    if (!session) {
+      return NextResponse.json({ error: 'No autorizado' }, { status: 401 });
+    }
+
+    const { id } = await params;
+    const commentId = parseInt(id, 10);
+    const { content } = await request.json();
+
+    if (!content || content.trim().length < 3) {
+      return NextResponse.json({ error: 'Contenido inválido' }, { status: 400 });
+    }
+
+    const result = await pool.query('SELECT user_id FROM comments WHERE id = $1', [commentId]);
+    const commentsFound = result as any[];
+
+    if (commentsFound.length === 0) {
+      return NextResponse.json({ error: 'No encontrado' }, { status: 404 });
+    }
+
+    if (commentsFound[0].user_id !== session.user.id) {
+      return NextResponse.json({ error: 'No tienes permiso' }, { status: 403 });
+    }
+
+    const updateResult = await pool.query(
+      'UPDATE comments SET content = $1 WHERE id = $2 RETURNING *',
+      [content.trim(), commentId],
+    );
+
+    const updatedComment = (updateResult as any[])[0];
+
+    return NextResponse.json({
+      comment: {
+        ...updatedComment,
+        user: {
+          id: session.user.id,
+          name: session.user.name,
+          image: session.user.image,
+        },
+      },
+    });
+  } catch (error: any) {
+    console.error('--- ERROR EN PATCH ---', error.message);
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+}
