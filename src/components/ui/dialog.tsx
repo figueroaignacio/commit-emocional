@@ -130,7 +130,7 @@ const DialogOverlay = React.forwardRef<HTMLDivElement, DialogOverlayProps>(
         animate={{ opacity: 1, backdropFilter: 'blur(4px)' }}
         exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
         transition={{ duration: 0.3 }}
-        className={cn('fixed inset-0 z-200 bg-white/10 dark:bg-black/40', className)}
+        className={cn('fixed inset-0 z-500 bg-white/10 dark:bg-black/40', className)}
         onClick={() => setOpen(false)}
         {...props}
       />
