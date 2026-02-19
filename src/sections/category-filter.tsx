@@ -32,13 +32,11 @@ export function CategoryFilter({ categories }: CategoryFilterProps) {
 
   return (
     <div className="mb-12">
-      <div className="flex flex-wrap gap-6">
-        <Categories
-          categories={categories}
-          currentCategory={currentCategory}
-          onCategoryChange={handleCategoryChange}
-        />
-      </div>
+      <Categories
+        categories={categories}
+        currentCategory={currentCategory}
+        onCategoryChange={handleCategoryChange}
+      />
 
       {isPending && (
         <div className="mt-8">
