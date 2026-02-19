@@ -1,6 +1,5 @@
 'use client';
 
-import { AnimatePresence, motion } from 'motion/react';
 import { CommentItem } from './comment-item';
 
 interface User {
@@ -53,28 +52,26 @@ export function CommentsList({
 
   if (comments.length === 0) {
     return (
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-12">
+      <div className="text-center py-12">
         <p className="text-muted-foreground text-sm font-light">
           No hay comentarios aún. Sea el primero en iniciar la conversación.
         </p>
-      </motion.div>
+      </div>
     );
   }
 
   return (
     <div className="space-y-8">
-      <AnimatePresence initial={false} mode="popLayout">
-        {comments.map((comment) => (
-          <CommentItem
-            key={comment.id}
-            comment={comment}
-            currentUserId={currentUserId}
-            onDelete={onDeleteComment}
-            onEdit={onEditComment}
-            isDeleting={deletingId === comment.id}
-          />
-        ))}
-      </AnimatePresence>
+      {comments.map((comment) => (
+        <CommentItem
+          key={comment.id}
+          comment={comment}
+          currentUserId={currentUserId}
+          onDelete={onDeleteComment}
+          onEdit={onEditComment}
+          isDeleting={deletingId === comment.id}
+        />
+      ))}
     </div>
   );
 }

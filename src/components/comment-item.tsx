@@ -1,7 +1,6 @@
 'use client';
 
 import { Loader2, Pencil, Trash2 } from 'lucide-react';
-import { motion } from 'motion/react';
 import { useState } from 'react';
 
 interface User {
@@ -60,13 +59,7 @@ export function CommentItem({
   const isOwner = currentUserId === comment.user.id;
 
   return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      className={`group ${isDeleting ? 'opacity-50' : ''}`}
-    >
+    <div className={`group ${isDeleting ? 'opacity-50' : ''}`}>
       <div className="flex items-start gap-3">
         {/* <div className="shrink-0 mt-1">
           <img
@@ -141,6 +134,6 @@ export function CommentItem({
           )}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
