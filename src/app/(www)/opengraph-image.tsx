@@ -1,7 +1,8 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'Commit Emocional | Reflexiones sobre temas en general';
+export const alt =
+  'Commit Emocional | Te invito a leer mis boludeces. No hay reembolso por tiempo perdido.';
 
 export const size = {
   width: 1200,
@@ -12,65 +13,63 @@ export const contentType = 'image/png';
 
 export default async function Image() {
   return new ImageResponse(
-    (
+    <div
+      style={{
+        height: '100%',
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        justifyContent: 'center',
+        backgroundColor: '#09090b',
+        padding: '80px',
+      }}
+    >
       <div
         style={{
-          height: '100%',
-          width: '100%',
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'flex-start',
-          justifyContent: 'center',
-          backgroundColor: '#ffffff',
-          padding: '80px',
+          gap: '24px',
         }}
       >
-        <div
+        <h1
           style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '24px',
+            fontSize: '72px',
+            fontWeight: 700,
+            letterSpacing: '-0.05em',
+            color: '#fafafa',
+            margin: 0,
+            lineHeight: 1.1,
           }}
         >
-          <h1
-            style={{
-              fontSize: '72px',
-              fontWeight: 700,
-              letterSpacing: '-0.05em',
-              color: '#000000',
-              margin: 0,
-              lineHeight: 1.1,
-            }}
-          >
-            Commit Emocional
-          </h1>
-          <p
-            style={{
-              fontSize: '32px',
-              fontWeight: 400,
-              color: '#737373',
-              margin: 0,
-              maxWidth: '800px',
-              lineHeight: 1.5,
-              letterSpacing: '-0.02em',
-            }}
-          >
-            Reflexiones sobre temas en general
-          </p>
-        </div>
-
-        <div
+          Commit Emocional
+        </h1>
+        <p
           style={{
-            position: 'absolute',
-            bottom: '80px',
-            left: '80px',
-            width: '60px',
-            height: '1px',
-            backgroundColor: '#000000',
+            fontSize: '32px',
+            fontWeight: 400,
+            color: '#a1a1aa',
+            margin: 0,
+            maxWidth: '800px',
+            lineHeight: 1.5,
+            letterSpacing: '-0.02em',
           }}
-        />
+        >
+          Te invito a leer mis boludeces. No hay reembolso por tiempo perdido.
+        </p>
       </div>
-    ),
+
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '80px',
+          left: '80px',
+          width: '60px',
+          height: '1px',
+          backgroundColor: '#fafafa',
+        }}
+      />
+    </div>,
     {
       ...size,
     },

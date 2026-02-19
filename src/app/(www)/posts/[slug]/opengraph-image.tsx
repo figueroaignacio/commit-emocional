@@ -17,32 +17,30 @@ export default async function Image({ params }: { params: Promise<{ slug: string
 
   if (!post) {
     return new ImageResponse(
-      (
+      <div
+        style={{
+          height: '100%',
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+          justifyContent: 'center',
+          backgroundColor: '#09090b',
+          padding: '80px',
+        }}
+      >
         <div
           style={{
-            height: '100%',
-            width: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-            justifyContent: 'center',
-            backgroundColor: '#ffffff',
-            padding: '80px',
+            fontSize: 72,
+            fontWeight: 300,
+            letterSpacing: '-0.05em',
+            color: '#000000',
+            lineHeight: 1.1,
           }}
         >
-          <div
-            style={{
-              fontSize: 72,
-              fontWeight: 300,
-              letterSpacing: '-0.05em',
-              color: '#000000',
-              lineHeight: 1.1,
-            }}
-          >
-            Post no encontrado
-          </div>
+          Post no encontrado
         </div>
-      ),
+      </div>,
       {
         ...size,
       },
@@ -56,90 +54,75 @@ export default async function Image({ params }: { params: Promise<{ slug: string
   });
 
   return new ImageResponse(
-    (
+    <div
+      style={{
+        height: '100%',
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        justifyContent: 'space-between',
+        backgroundColor: '#09090b',
+        padding: '80px',
+      }}
+    >
       <div
         style={{
-          height: '100%',
-          width: '100%',
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'flex-start',
-          justifyContent: 'space-between',
-          backgroundColor: '#ffffff',
-          padding: '80px',
+          gap: '24px',
         }}
       >
         <div
           style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '24px',
+            fontSize: 28,
+            fontWeight: 300,
+            letterSpacing: '0.05em',
+            color: '#fafafa',
+            textTransform: 'uppercase',
           }}
         >
-          <div
-            style={{
-              fontSize: 28,
-              fontWeight: 300,
-              letterSpacing: '0.05em',
-              color: '#737373',
-              textTransform: 'uppercase',
-            }}
-          >
-            Commit Emocional
-          </div>
-          <div
-            style={{
-              fontSize: 64,
-              fontWeight: 300,
-              letterSpacing: '-0.05em',
-              color: '#000000',
-              lineHeight: 1.1,
-              maxWidth: '900px',
-            }}
-          >
-            {post.title}
-          </div>
-          {post.description && (
-            <div
-              style={{
-                fontSize: 32,
-                fontWeight: 300,
-                color: '#737373',
-                lineHeight: 1.4,
-                maxWidth: '800px',
-              }}
-            >
-              {post.description}
-            </div>
-          )}
+          Commit Emocional
         </div>
         <div
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '16px',
+            fontSize: 64,
+            fontWeight: 300,
+            letterSpacing: '-0.05em',
+            color: '#a1a1aa',
+            lineHeight: 1.1,
+            maxWidth: '900px',
           }}
         >
-          <div
-            style={{
-              width: '40px',
-              height: '1px',
-              backgroundColor: '#000000',
-            }}
-          />
-          <div
-            style={{
-              fontSize: 20,
-              fontWeight: 300,
-              color: '#737373',
-              letterSpacing: '0.02em',
-            }}
-          >
-            {formattedDate}
-          </div>
+          {post.title}
         </div>
       </div>
-    ),
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '16px',
+        }}
+      >
+        <div
+          style={{
+            width: '40px',
+            height: '1px',
+            backgroundColor: '#fafafa',
+          }}
+        />
+        <div
+          style={{
+            fontSize: 20,
+            fontWeight: 300,
+            color: '#fafafa',
+            letterSpacing: '0.02em',
+          }}
+        >
+          {formattedDate}
+        </div>
+      </div>
+    </div>,
     {
       ...size,
     },
