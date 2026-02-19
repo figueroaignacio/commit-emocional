@@ -3,17 +3,20 @@ import { Header } from '@/components/header';
 import { siteConfig } from '@/lib/config';
 import { fontSans } from '@/lib/font';
 import type { Metadata } from 'next';
+import { ViewTransition } from 'react';
 import '../globals.css';
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
       <body className={fontSans.className}>
-        <div className="grid grid-rows-[auto_1fr_auto] min-h-dvh">
-          <Header />
-          <main className="container">{children}</main>
-          <Footer />
-        </div>
+        <ViewTransition>
+          <div className="grid grid-rows-[auto_1fr_auto] min-h-dvh">
+            <Header />
+            <main className="container">{children}</main>
+            <Footer />
+          </div>
+        </ViewTransition>
       </body>
     </html>
   );
