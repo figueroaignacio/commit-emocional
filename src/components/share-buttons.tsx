@@ -15,14 +15,14 @@ export function ShareButtons({ slug, title }: ShareButtonsProps) {
     {
       name: 'Whatsapp',
       url: `https://wa.me/?text=${encodeURIComponent(
-        `Che, leé esto que te va a volar la peluca: "${title}" ${url}`,
+        `Che, leé esto: "${title}" ${url}`,
       )}`,
       color: 'hover:text-green-500',
     },
     {
       name: 'X',
       url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-        `Acabo de leer esto de Commit Emocional y 🤯.\n\n"${title}"\n\n${url}`,
+        `Acabo de leer esto de Commit Emocional.\n\n"${title}"\n\n${url}`,
       )}`,
       color: 'hover:text-foreground',
     },

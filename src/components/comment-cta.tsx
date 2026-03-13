@@ -45,8 +45,7 @@ export function CommentCTA() {
                 ¿Qué te pareció? <span className="text-lg animate-pulse">👉🏽👈🏽</span>
               </h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                Si te reíste, te enojaste o te querés ir a vivir al monte, tirame un centro en los
-                comentarios. No seas ortivaaaa.
+                Tirame un centro en los comentarios. No seas ortivaaaa.
               </p>
             </div>
             <div className="absolute inset-0 -z-10 bg-linear-to-tr from-primary/5 to-transparent rounded-xl pointer-events-none" />

@@ -2,7 +2,7 @@ export const siteConfig = {
   name: 'Commit Emocional',
   description:
     'Escribo para sacarme de la cabeza lo que me hace ruido. No tengo la verdad de la milanesa, pero si algo de esto te resuena o te ahorra una crisis existencial, golazo. Filosofía de bolsillo para la vida moderna.',
-  url: 'https://commitemocional.com',
+  url: 'https://commit-emocional.vercel.app',
   author: 'Ignacio Figueroa',
   creator: 'Ignacio Figueroa',
   locale: 'es_AR',
